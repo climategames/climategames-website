@@ -1,0 +1,9 @@
+<%= simple_form_for @moderator, url: [:moderation, @moderator] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :username, label: t("moderation.moderator.username") %>
+  <%= f.input :password, required: true, label: t("moderation.moderator.password") %>
+  <%= f.input :password_confirmation, required: true, label: t("moderation.moderator.password_confirmation") %>
+  <div class="text-right margin-top-20 margin-bottom-20">
+    <%= f.button :submit, class: 'btn btn-magenta' %>
+  </div>
+<% end %>

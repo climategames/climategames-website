@@ -1,0 +1,48 @@
+<div class="slide parallax-window" data-parallax="scroll" data-image-src="<%= image_path('show/mobiles.jpg') %>">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <h1><%= t "cg.copy.teams.join.you_are_joining" %></h1>
+    </div>
+  </div>
+</div>
+
+<div class="row content">
+  <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-1">
+    <div class="text-center">
+      <p>
+        <small>
+          <%= t "cg.copy.teams.new.team_already_registered" %><br />
+          <%= link_to t("cg.copy.teams.new.browse_registered"), "/#{::I18n.locale}/teams" %>
+        </small>
+      </p>
+    </div>
+
+    <div class="text-center">
+      <p>
+        <small>
+          <%= t "cg.copy.teams.new.not_ready_yet" %><br />
+          <%= link_to t("cg.copy.teams.new.get_prepared"), "/#{::I18n.locale}/preparation" %>
+        </small>
+      </p>
+    </div>
+
+    <%= simple_form_for @team, url: teams_path(locale: I18n.locale) do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name, label: t("cg.copy.teams.new.team_name") %>
+      <p><small><%= t("cg.copy.teams.new.badges_are_awarded") %></small></p>
+      <%= f.input :password, required: true, label: t("cg.copy.teams.new.shared_team_password") %>
+      <%= f.input :password_confirmation, required: true, label: t("cg.copy.teams.new.shared_team_password_confirmation") %>
+      <p><small><%= t("cg.copy.teams.new.youll_need_this") %></small></p>
+      <div class="text-right margin-top-20 margin-bottom-20">
+        <%= f.button :submit, class: 'btn btn-magenta' %>
+      </div>
+    <% end %>
+
+    <p><strong><%= t("cg.copy.teams.new.how_we_keep_you_safe.title") %></strong></p>
+    <ul>
+      <% (1..5).each do |index| %>
+        <li><%= t("cg.copy.teams.new.how_we_keep_you_safe.point_#{index}") %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="<%= ::I18n.locale %>">
+  <head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Climate Games</title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'shared/navbar' %>
+    </header>
+    <main role="main">
+      <div class="container">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
+    </main>
+    <footer>
+    </footer>
+  </body>
+  <%= javascript_include_tag 'standalone' %>
+</html>

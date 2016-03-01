@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<%= render "/refinery/html_tag" %>
+  <% site_bar = render('/refinery/site_bar', :head => true) -%>
+  <head>
+    <%= render "/refinery/head" %>
+    <%= render "/shared/facebook_open_graph" %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body id="<%= canonical_id @page %>" data-locale="<%= I18n.locale %>" class="<%= "#{controller.controller_name} #{controller.controller_name}_#{controller.action_name} #{@body_class}".strip %>" data-current-path="<%= request.path %>">
+    <%= site_bar -%>
+
+    <header>
+      <%= render 'shared/navbar' %>
+    </header>
+
+    <main role="main">
+      <div class="container no-side-padding no-overflow">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
+    </main>
+
+    <%= render 'shared/footer' %>
+    <%= render "/refinery/javascripts" %>
+  </body>
+</html>

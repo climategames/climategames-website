@@ -1,0 +1,214 @@
+# https://www.digitalocean.com/community/tutorials/how-to-deploy-rails-apps-using-passenger-with-nginx-on-centos-6-5
+
+yum -y update
+
+yum groupinstall -y 'development tools'
+
+sudo su -c 'rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm'
+yum -y update
+
+yum install -y curl-devel nano sqlite-devel libyaml-devel ImageMagick
+
+gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+curl -L get.rvm.io | bash -s stable
+source /etc/profile.d/rvm.sh
+
+rvm reload
+rvm install 2.2.1
+rvm rvmrc warning ignore allGemfiles
+
+# Installing nodejs was tricky
+# yum install -y nodejs # Did not work
+# This worked, but is not ideal, from http://serverfault.com/questions/299288/how-do-you-install-node-js-on-centos :
+# $ wget https://raw.github.com/isaacs/nave/master/nave.sh
+# $ chmod +x nave.sh
+# $ ./nave.sh install 0.8.8
+# $ ./nave.sh use 0.8.8
+# $ node -v
+# Alternative suggestion for installing: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-a-centos-7-server
+
+
+cat >~/.gemrc <<-EOF
+gem: --no-rdoc --no-ri
+EOF
+gem install bundler rails
+
+# Create a 1024 MB SWAP space
+sudo dd if=/dev/zero of=/swap bs=1M count=1024
+sudo mkswap /swap
+sudo swapon /swap
+
+ssh-keygen -A
+
+# Install db
+yum install -y mariadb-server mariadb mariadb-devel
+/bin/systemctl start  mariadb.service
+
+# Create ClimateGames user
+useradd -b /var/www/ ClimateGames
+su ClimateGames
+# As ClimateGames:
+chmod a+rx ~ # Give nginx access to the directory
+mkdir ~/.ssh
+cat >~/.ssh/authorized_keys <<-EOF
+[put here the team members' keys]
+EOF
+chmod 700 ~/.ssh/
+chmod 600 ~/.ssh/authorized_keys
+mkdir ~/shared
+# In order to make nodejs work I had to repeat the steps to install nave again for ClimateGames user (maybe the other suggested way of installing gets around this?)
+
+# Back to root
+visudo # Add to END of file: ClimateGames  ALL=NOPASSWD: ALL
+
+# Copy shared files from current production (but not bundle dir)
+scp -r shared/[^b]* ClimateGames@cloudstaging.yourclimategamesdomain.net:~/shared
+# Create the production database
+# Modify ~/shared/config/database.yml
+
+# From a local machine, deploy the codebase:
+bundle exec cap cloudstaging deploy
+
+# If all goes well, you can load the data in the code into the database:
+su ClimateGames
+cd ~/current/
+RAILS_ENV=production bundle exec rake db:data:load
+
+# As root on remote machine, install nginx and passenger
+gem install passenger
+
+passenger-install-nginx-module # (ruby only, option 1) # wait long time
+
+# Create self signed certificate
+openssl genrsa -des3 -passout pass:x -out server.pass.key 2048
+openssl rsa -passin pass:x -in server.pass.key -out server.key
+rm -f server.pass.key
+openssl req -new -key server.key -out server.csr
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+mkdir ~ClimateGames/keys
+mv server.* ~ClimateGames/keys
+
+cat >/etc/rc.d/init.d/nginx <<-EOF
+#!/bin/sh
+. /etc/rc.d/init.d/functions
+. /etc/sysconfig/network
+[ "$NETWORKING" = "no" ] && exit 0
+
+nginx="/opt/nginx/sbin/nginx"
+prog=$(basename $nginx)
+
+NGINX_CONF_FILE="/opt/nginx/conf/nginx.conf"
+
+lockfile=/var/lock/subsys/nginx
+
+start() {
+    [ -x $nginx ] || exit 5
+    [ -f $NGINX_CONF_FILE ] || exit 6
+    echo -n $"Starting $prog: "
+    daemon $nginx -c $NGINX_CONF_FILE
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog -QUIT
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    return $retval
+}
+
+restart() {
+    configtest || return $?
+    stop
+    start
+}
+
+reload() {
+    configtest || return $?
+    echo -n $”Reloading $prog: ”
+    killproc $nginx -HUP
+    RETVAL=$?
+    echo
+}
+
+force_reload() {
+    restart
+}
+
+configtest() {
+    $nginx -t -c $NGINX_CONF_FILE
+}
+
+rh_status() {
+    status $prog
+}
+
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+
+case "$1" in
+start)
+rh_status_q && exit 0
+$1
+;;
+stop)
+rh_status_q || exit 0
+$1
+;;
+restart|configtest)
+$1
+;;
+reload)
+rh_status_q || exit 7
+$1
+;;
+force-reload)
+force_reload
+;;
+status)
+rh_status
+;;
+condrestart|try-restart)
+rh_status_q || exit 0
+;;
+*)
+echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}"
+exit 2
+esac
+EOF
+chmod +x /etc/rc.d/init.d/nginx
+
+# In /opt/nginx/conf/nginx.conf, change server node to match config below
+    server {
+
+        listen       443;
+        server_name  cloudstaging.yourclimategamesdomain.net;
+
+        ssl                     on;
+        ssl_certificate         /var/www/ClimateGames/keys/server.crt;
+        ssl_certificate_key     /var/www/ClimateGames/keys/server.key;
+
+        ssl_session_timeout     30m;
+
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        # location / {
+        #     root   html;
+        #     index  index.html index.htm;
+        # }
+
+        root /var/www/ClimateGames/current/public;
+        passenger_enabled on;
+
+        #error_page  404              /404.html;
+
+        # ...leave more stuff that was already there
+    }

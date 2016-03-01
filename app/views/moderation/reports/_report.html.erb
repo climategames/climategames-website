@@ -1,0 +1,33 @@
+<tr>
+  <td>
+    <%= image_tag image_path("reports/#{report.category}.png") %>
+  </td>
+  <td>
+    <%- if report.approved? %>
+      <%= link_to(report.title, report_path(report, locale: I18n.locale.to_s), target: "_blank") %>
+    <% else %>
+      <%= report.title %>
+    <% end %>
+  </td>
+  <td>
+    <%- if report.team %>
+      <%= link_to(report.team.name, team_path(report.team, locale: locale.to_s), target: "_blank") %>
+    <%- end %>
+  </td>
+  <td>
+    <%= report.date_time.to_s(:short) %>
+  </td>
+  <td>
+    <%= image_tag report.primary_picture_url(:thumb), class: 'thumb' %>
+  </td>
+  <%= moderation_outcome_colored(report) %>
+  <td>
+    <%= report.current_moderator.try(:username) %>
+  </td>
+  <td class='actions'>
+    <%= link_to(image_tag('refinery/icons/application_edit.png', alt: t('moderation.edit')), edit_moderation_report_path(report, locale: locale.to_s)) %>
+  </td>
+  <td class='actions'>
+    <%= hover_memo(report) %>
+  </td>
+</tr>

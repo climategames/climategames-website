@@ -1,0 +1,60 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ */
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "jquery-ui/autocomplete";
+@import "leaflet";
+@import "L.Control.Locate";
+@import "leaflet.markercluster";
+@import "leaflet.markercluster.default";
+
+@import "helpers";
+@import "buttons";
+@import "shared";
+@import "home";
+@import "teams";
+@import "reports";
+@import "moderation";
+@import "awards";
+
+//= depend_on_asset "layers.png"
+//= depend_on_asset "layers-2x.png"
+
+@font-face {
+  font-family: 'MuseoSansCond-500';
+  src: font-url('MuseoSansCond-500.otf');
+}
+
+@font-face {
+  font-family: 'Museo-700';
+  src: font-url('Museo-700.otf');
+}
+
+@font-face {
+  font-family: 'Museo-700Italic';
+  src: font-url('Museo-700Italic.otf');
+}
+
+@font-face {
+  font-family: 'ProximaNova-Regular';
+  src: font-url('ProximaNova-Regular.otf');
+}
+
+@font-face {
+  font-family: 'ProximaNova-Bold';
+  src: font-url('ProximaNova-Bold.otf');
+}

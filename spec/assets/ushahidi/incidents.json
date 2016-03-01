@@ -1,0 +1,91 @@
+{
+  "payload": {
+    "domain": "http://nature-speaking.com/report/",
+    "incidents": [
+      {
+        "incident": {
+          "incidentid": "12",
+          "incidenttitle": "Mother earth is speaking",
+          "incidentdescription": "Mother earth is speaking https://www.youtube.com/watch?v=WmVLcj-XKnM",
+          "incidentdate": "2015-01-01 11:11:00",
+          "incidentmode": "1",
+          "incidentactive": "1",
+          "incidentverified": "1",
+          "locationid": "13",
+          "locationname": "Earth",
+          "locationlatitude": "2.123456",
+          "locationlongitude": "5.654321"
+        },
+        "categories": [
+          {
+            "category": {
+              "id": 1,
+              "title": "Speaking"
+            }
+          },
+          {
+            "category": {
+              "id": 2,
+              "title": "Team Earth"
+            }
+          }
+        ],
+        "media": [
+          {
+            "id": 111,
+            "type": 2,
+            "link": "https://www.youtube.com/watch?v=WmVLcj-XKnM",
+            "thumb": null
+          }
+        ],
+        "comments": [
+
+        ],
+        "customfields": [
+
+        ]
+      },
+      {
+        "incident": {
+          "incidentid": "25",
+          "incidenttitle": "The rainforest is speaking",
+          "incidentdescription": "The rainforest is speaking https://www.youtube.com/watch?v=jBqMJzv4Cs8",
+          "incidentdate": "2015-01-01 12:12:00",
+          "incidentmode": "1",
+          "incidentactive": "0",
+          "incidentverified": "1",
+          "locationid": "26",
+          "locationname": "Earth",
+          "locationlatitude": "3.123456",
+          "locationlongitude": "4.654321"
+        },
+        "categories": [
+          {
+            "category": {
+              "id": 1,
+              "title": "Speaking"
+            }
+          }
+        ],
+        "media": [
+          {
+            "id": 112,
+            "type": 2,
+            "link": "https://www.youtube.com/watch?v=jBqMJzv4Cs8",
+            "thumb": null
+          }
+        ],
+        "comments": [
+
+        ],
+        "customfields": [
+
+        ]
+      }
+    ]
+  },
+  "error": {
+    "code": "0",
+    "message": "Geen fout"
+  }
+}

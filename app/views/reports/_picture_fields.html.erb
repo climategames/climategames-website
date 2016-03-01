@@ -1,0 +1,17 @@
+<% if f.object.try(:id) %>
+  <p>
+    <%= image_tag f.object.image(:small) %>
+    <%= check_box_tag 'image_ids_to_delete[]', f.object.id, false, id: "image_id_to_delete_#{f.object.id}" %>
+    <label class="optional control-label" for="image_id_to_delete_<%= f.object.id %>"><%= t("moderation.report.delete_image") %></label>
+    <p><%= link_to t('cg.pictures.link_to_original'), f.object.image(:original), target: '_blank' %></p>
+  </p>
+
+<% else %>
+  <div class="nested-fields">
+    <%= f.input :image, as: :file, label: false %>
+
+    <div class="text-right">
+      <small><%= link_to_remove_association t('cg.reports.remove'), f %></small>
+    </div>
+  </div>
+<% end %>

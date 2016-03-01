@@ -1,0 +1,42 @@
+<div id="splash-container" class="container backdrop backdrop-bloodcell" data-x="3" data-scale="30">
+  <div class="row">
+    <div class="col-xs-9">
+      <h1><%= t "cg.climate_games_name" %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div id="left-content-container" class="col-md-9">
+      <div id="we-are-nature">
+        <%= t("cg.we_are_nature").html_safe %>
+      </div>
+      <div id="splash-message">
+        <%= raw @page.content_for(:body) %>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12 twitter-feed clearfix">
+      <%= render(partial: '/shared/twitter_feed') %>
+    </div>
+    <div class="button-row">
+      <div id="amsterdam-link" class="col-md-3">
+        <a class="btn btn-large btn-info"
+           href="https://www.climategames.nl"
+           target="_blank">
+          <%= t("cg.climate_games_amsterdam") %>
+        </a>
+      </div>
+      <div id="subscribe" class="col-md-3">
+        <a class="btn btn-large btn-info"
+           href="https://lists.riseup.net/www/subscribe/climategamescop21-newsletter"
+           target="_blank">
+          <%= t("cg.subscribe_for_update") %>
+        </a>
+      </div>
+      <div id="contact" class="col-md-3">
+        <a class="btn btn-large btn-info"
+           href="mailto:info@climategames.net">
+          info@climategames.net
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

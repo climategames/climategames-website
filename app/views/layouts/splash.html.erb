@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="<%= yield(:lang) %>">
+  <head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title><%= browser_title(yield(:title)) %></title>
+    <meta charset='<%= Rails.application.config.encoding %>' />
+<%= raw %(<meta name="description" content="#{@meta.meta_description}" />) if @meta.meta_description.present? -%>
+<%= raw %(<link rel="canonical" href="#{request.protocol}#{request.host_with_port}#{@canonical}" />) if @canonical.present? -%>
+<%= favicon_link_tag "naturedefendingitself_icon.png" %>
+<%= stylesheet_link_tag "splash" %>
+<%= yield :stylesheets %>
+
+<%= javascript_include_tag 'modernizr-min' %>
+
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+  <%= javascript_include_tag 'standalone' %>
+</html>

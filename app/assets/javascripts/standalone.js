@@ -1,0 +1,10 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui/autocomplete
+//= require bootstrap-sprockets
+//= require moment
+//= require leaflet
+//= require bouncemarker
+//= require leaflet.markercluster
+//= require L.Control.Locate
+//= require_tree .

@@ -1,0 +1,11 @@
+
+<tr>
+  <td>
+    <%= moderator.username %>
+  </td>
+  <%= yes_or_no(moderator.enabled) %>
+  <%= yes_or_no(moderator.super_cape) %>
+  <td class='actions'>
+    <%= link_to(image_tag('refinery/icons/application_edit.png', alt: t('moderation.edit')), edit_moderation_moderator_path(moderator, locale: locale.to_s)) %>
+  </td>
+</tr>

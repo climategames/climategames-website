@@ -1,0 +1,12 @@
+require 'trello'
+
+# Generate a developer key by logging into Trello and visiting
+# https://trello.com/1/appKey/generate
+
+TRELLO_DEVELOPER_PUBLIC_KEY = ""
+TRELLO_MEMBER_TOKEN = ""
+
+Trello.configure do |config|
+  config.developer_public_key = TRELLO_DEVELOPER_PUBLIC_KEY
+  config.member_token = TRELLO_MEMBER_TOKEN
+end

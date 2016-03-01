@@ -1,0 +1,15 @@
+<h1><%= t("moderation.session.log_in") %></h1>
+
+<%= form_tag moderation_sessions_path(locale: locale.to_s) do %>
+  <div class="field">
+    <%= label_tag :username, t("moderation.moderator.username") %><br />
+    <%= text_field_tag :username, params[:username] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password, t("moderation.moderator.password") %><br />
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions"><%= submit_tag t("moderation.session.log_in") %></div>
+<% end %><br/>
+
+<%= link_to(t("moderation.sign_up"), moderation_signup_path(locale: locale.to_s)) %>

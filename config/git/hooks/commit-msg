@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+commit_msg = ARGV[0]
+backup_file = commit_msg+"-BACKUP"
+first_line = IO.read(commit_msg, 100)
+valid_commit_message = !!first_line.match(/^((?:fixup! |squash! )?[A-Z]+-\d+(\.\d+)? )|Merge branch /)
+
+unless valid_commit_message
+  $stderr.write "error: Commit must start with a ticket number in the format PP-123"
+  require 'fileutils'
+  FileUtils.copy(commit_msg, backup_file)
+  $stderr.puts " (message saved as #{backup_file})"
+end
+
+exit valid_commit_message ? 0 : 1

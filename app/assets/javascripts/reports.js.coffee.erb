@@ -1,0 +1,340 @@
+window.markerIcons = {
+  'adventure': "<%= image_path('reports/adventure.png') %>",
+  'intel': "<%= image_path('reports/intel.png') %>"
+}
+
+delay = (ms, func) ->
+  setTimeout func, ms
+
+valueIsBlank = (value) ->
+  value.trim().length == 0
+
+search = (nameKey, myArray) ->
+  i = 0
+  while i < myArray.length
+    if myArray[i].id == nameKey
+      return myArray[i]
+    i++
+
+moveMapTo = (longitude, latitude, zoom) ->
+  window.map.setView [latitude, longitude], zoom
+
+addMarkerToMap = ->
+  markerIcon = L.icon
+    iconUrl: "<%= image_path('marker-icon.png') %>"
+    iconSize: [
+      25
+      41
+    ]
+    iconAnchor: [
+      12
+      41
+    ]
+
+  marker = new (L.marker)(window.map.getCenter(),
+    bounceOnAdd: true
+    icon: markerIcon
+    clickable: false)
+  marker.addTo window.map
+
+  window.map.on 'move', (e) ->
+    marker.setLatLng window.map.getCenter()
+
+setLatLngFormFieldsToMapCenter = ->
+  latLng = window.map.getCenter()
+  $('#report_longitude').val latLng.lng
+  $('#report_latitude').val latLng.lat
+
+setMapToLatLngFormFields = ->
+  lat = $('#report_latitude').val()
+  lng = $('#report_longitude').val()
+  if lat != '' && lng != ''
+    window.map.setView new (L.LatLng)(lat, lng), 12
+  else
+    window.map.setView new (L.LatLng)(48.8565, 2.35213), 12
+
+bindLngLatFormFieldsToMapMove = ->
+  window.map.on 'dragend', ->
+    setLatLngFormFieldsToMapCenter()
+
+  window.map.on 'locationfound', ->
+    setLatLngFormFieldsToMapCenter()
+
+filteredUrl = ->
+  url = '/api/v1/reports'
+  params = []
+
+  if $('#category_filter').val() != ''
+    params.push 'category=' + $('#category_filter').val()
+
+  if $('#team_filter').val() != ''
+    params.push 'team_id=' + $('#team_filter').val()
+
+  if $('#award_filter').val() != ''
+    params.push 'award_id=' + $('#award_filter').val()
+
+  if params.length > 0
+    params = params.join('&')
+    url += '?' + params
+
+  url
+
+getMarkers = (filter) ->
+  url = filteredUrl()
+  $.ajax
+    type: 'GET'
+    url: url
+    success: (data) ->
+      window.reports = data.reports
+      window.teams = data.teams
+      resetMarkers()
+      addReportMarkers()
+      addReportsToTable()
+
+resetMarkers = ->
+  # Remove existing markers
+  if window.markerCluster
+    window.markerCluster.clearLayers()
+  else
+    window.markerCluster = L.markerClusterGroup()
+
+  window.markers = []
+
+addReportMarkers = ->
+  if window.reports.length > 0
+    # Create markers for each report
+    for report in window.reports
+      markerIcon = L.icon
+        iconUrl: window.markerIcons[report.category]
+        iconSize: [
+          34
+          47
+        ]
+        iconAnchor: [
+          17
+          57
+        ]
+
+      marker = new (L.marker)(new (L.LatLng)(report.latitude, report.longitude),
+        bounceOnAdd: false
+        icon: markerIcon
+        clickable: true
+        title: report.title)
+
+      popup = new (L.popup)()
+
+      html = ''
+      html += '<p><img class="img-circle thumb" style="float: left; margin: 0 10px 10px 0;" src="' + report.image + '"></p>' if report.image
+      html += '<p><b>' + report.title + '</b>'
+      html += '<br />'
+
+      truncated = report.description.length > 255
+      description = report.description.substring(0, 255);
+      description += '...' if truncated
+      html += description
+
+      html += '</p>'
+
+      locale = $('body').attr('data-locale')
+      moreLinkText = $('#map').attr('data-more-link-text')
+      html += '<p><a href="/' + locale + '/reports/' + report.id + '" class="btn btn-small btn-magenta">' + moreLinkText + '</a></p>'
+
+      marker.bindPopup(html).openPopup();
+
+      # Push to marker cluster
+      window.markerCluster.addLayer marker
+
+    # Set map bounds with marker cluster
+    window.map.addLayer window.markerCluster
+    window.map.fitBounds window.markerCluster.getBounds()
+
+addReportsToTable = ->
+  html = ''
+
+  if window.reports.length > 0
+    currentPath = $('body').attr 'data-current-path'
+
+    for report in window.reports
+      rowHtml = '<tr>'
+
+      rowHtml += '<td class="hidden-xs">'
+      rowHtml += '<a target="_blank" href="' + currentPath + '/' + report.id + '">'
+      rowHtml += '<img src="' + window.markerIcons[report.category] + '" />'
+      rowHtml += '</a>'
+      rowHtml += '</td>'
+
+      rowHtml += '<td>'
+      rowHtml += '<a target="_blank" href="' + currentPath + '/' + report.id + '">'
+      rowHtml += '<img class="img-rounded thumb" src="' + report.image + '" alt="' + report.title + '" />'
+      rowHtml += '</a>'
+      rowHtml += '</td>'
+
+      rowHtml += '<td>'
+      rowHtml += '<a target="_blank" href="' + currentPath + '/' + report.id + '">'
+      rowHtml += report.title
+      rowHtml += '</a>'
+      rowHtml += '</td>'
+
+      team = search parseInt(report.team_id), window.teams
+      if team
+        teamName = team.name
+      else
+        teamName = '<%= I18n.t('cg.reports.none') %>'
+      rowHtml += '<td class="hidden-xs">'
+      rowHtml += teamName
+      rowHtml += '</td>'
+
+      rowHtml += '<td>'
+      rowHtml += report.date_time
+      rowHtml += '</td>'
+
+      rowHtml += '<td class="hidden-xs">'
+      rowHtml += report.location
+      rowHtml += '</td>'
+
+      rowHtml += '<td class="hidden-xs">'
+      rowHtml += '<a class="btn btn-sm btn-magenta" href="' + currentPath + '/' + report.id + '" target="_blank"><%= I18n.t('cg.reports.more_info') %></a>'
+      rowHtml += '</td>'
+
+      rowHtml += '</tr>'
+
+      html += rowHtml
+  else
+
+    html = '<tr><td colspan="8" class="text-center"><%= I18n.t('cg.reports.no_results') %></td></tr>'
+
+  $('#reports-list').html html
+
+panToAndZoomIntoParis = ->
+  # Move to Paris
+  delay 5000, ->
+    window.map.panTo new (L.LatLng)(48.8565, 2.35213)
+    # Zoom in on Paris
+    delay 2000, ->
+      window.map.setView new (L.LatLng)(48.8565, 2.35213), 11
+
+jQuery ->
+  # Pulse the about tab
+  pulseAbout = ->
+    window.pulseCount = 1 if !window.pulseCount
+    window.pulseCount += 1
+    if window.pulseCount < 7
+      $('#about_button').animate({opacity: 0}, 1000).animate {opacity: 1}, 1000, ->
+        pulseAbout()
+  pulseAbout() if $('#about_button').length > 0
+
+  # Tooltip behaviour for anything with rel="tooltip"
+  $("[rel='tooltip']").tooltip()
+
+  # Location autocomplate
+  $('#report_location').autocomplete
+    select: (e, ui) ->
+      longitude = ui.item.longitude
+      latitude = ui.item.latitude
+      $('#report_longitude').val longitude
+      $('#report_latitude').val latitude
+      moveMapTo longitude, latitude, 16
+    source: (request, response) ->
+      if !valueIsBlank(request.term)
+        # Ensure at least 3 characters
+        if request.term.length > 2
+          $.ajax
+            type: 'GET'
+            url: 'https://photon.komoot.de/api/'
+            data:
+              q: request.term
+            success: (data) ->
+              suggestions = data.features
+              window.locations = []
+
+              # Sort the responses from Photon
+              index = 0
+              for suggestion in suggestions
+                human_name = suggestions[index].properties.name + ', ' + suggestions[index].properties.state + ', ' + suggestions[index].properties.country
+                window.locations.push
+                  label: human_name
+                  value: human_name
+                  longitude: suggestions[index].geometry.coordinates[0]
+                  latitude: suggestions[index].geometry.coordinates[1]
+                index += 1
+
+              # Return locations to jQuery Autocomplete
+              response window.locations
+
+  # Show and hide team fields on reports#new
+  $('#claim-team-points a').on 'click', (e) ->
+    e.preventDefault()
+    $('#claim-team-points').hide()
+    $('#claim-fields').show()
+
+  # Initialise the map on reports#index and reports#new
+  if $('#map').length > 0
+    options = new Object();
+
+    if $('#map').hasClass 'show'
+      # Disable most interactions with map when viewing a report
+      options.dragging = false;
+      options.scrollWheelZoom = false;
+      options.doubleClickZoom = false;
+      options.boxZoom = false;
+
+    window.map = new (L.Map)('map', options)
+
+    unless $('#map').hasClass 'show'
+      # Add location control
+      window.locate = L.control.locate()
+      window.locate.addTo window.map
+
+    # Set map tile provider and add layer
+    url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    attribution = 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+    openStreetMap = new (L.TileLayer)(url,
+      attribution: attribution
+      minZoom: 0
+      maxZoom: 18
+    )
+    window.map.addLayer openStreetMap
+
+    # Add center marker to reports#new
+    if $('#map').hasClass 'new'
+      setMapToLatLngFormFields()
+      bindLngLatFormFieldsToMapMove()
+      addMarkerToMap()
+
+    if $('#map').hasClass 'show'
+      setMapToLatLngFormFields()
+      addMarkerToMap()
+
+    # Add a markers to reports#index
+    if $('#map').hasClass 'index'
+      getMarkers 'all'
+
+    # Filtering
+    $('body').on 'change', '#category_filter, #team_filter, #award_filter', ->
+      getMarkers()
+
+  # Enable tab matching from the URL and scroll to top
+  if $('#map.index').length > 0
+    url = document.location.toString()
+
+    if url.match('#')
+      $('.nav-tabs a[href=#' + url.split('#')[1] + ']').tab 'show', ->
+        window.scrollTo 0, 0
+
+    $('.nav-tabs a').on 'shown.bs.tab', (e) ->
+      window.location.hash = e.target.hash
+
+    $('body').on 'shown.bs.tab', '#tabs', (e) ->
+      # Scroll to top
+      window.scrollTo 0, 0
+
+      # Show or hide map
+      if $(e.target).attr('href') == '#map-tab'
+        $('#map').removeClass 'invisible'
+      else
+        $('#map').addClass 'invisible'
+
+    $('body').on 'click', '#latest_report_navigation_item', (e) ->
+      e.preventDefault()
+      $('.nav-tabs a[href=#list-tab]').tab 'show', ->
+        window.scrollTo 0, 0

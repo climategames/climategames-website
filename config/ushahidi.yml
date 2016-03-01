@@ -1,0 +1,6 @@
+development:
+  maps:
+    amsterdam:
+      endpoint: "http://wijstoppensteenkool.nl/report/api"
+    paris:
+      endpoint: "http://climate-games.net/ushahidi/paris/api"

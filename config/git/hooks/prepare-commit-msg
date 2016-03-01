@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+file_name,source,sha1 = ARGV
+branch = `git rev-parse --abbrev-ref HEAD`.strip
+lines = File.open(file_name,'r'){|f| f.readlines}
+
+exit unless source == 'commit' || source.nil?
+if branch.match(/^(PP-\d+(\.\d+)?)/)
+  ticket = $1
+  exit if lines[0].match(/^(?:fixup! |squash! )?PP-\d+(\.\d+)? /)
+  lines[0] = "#{ticket} #{lines[0]}"
+  File.open(file_name,'w'){|f| f.write(lines.join '')}
+else
+  exit
+end

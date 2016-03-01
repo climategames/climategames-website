@@ -1,0 +1,93 @@
+<div class="relative">
+  <div id="shrowd">
+    <h1><%= t "cg.copy.reports.suspended.message" %></h1>
+  </div>
+  <div class="row content side-padding">
+    <div class="col-xs-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation"><a href="#" data-toggle="modal" data-target="#about" id="about_button"><%= t('cg.reports.about') %></a></li>
+        <li role="presentation" class="active"><a href="#map-tab" role="tab" data-toggle="tab"><%= t('cg.reports.map') %></a></li>
+        <li role="presentation"><a href="#list-tab" role="tab" data-toggle="tab"><%= t('cg.reports.list') %></a></li>
+        <li class="pull-right" role="presentation"><%= link_to t('cg.reports.submit_report'), "/#{::I18n.locale}/reports/new", class: 'btn btn-magenta btn-submit-report no-right-margin' %></li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="map-tab">
+          <div id="map" class="index" data-more-link-text="<%= t('cg.reports.more_info') %>"></div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="list-tab">
+          <div class="row">
+            <div class="col-md-12 margin-top-20">
+              <div class="table-responsive">
+                <table class="table table-condensed table-striped">
+                  <thead>
+                    <tr>
+                      <th><%= t('cg.reports.image') %></th>
+                      <th><%= t('cg.reports.team') %></th>
+                      <th><%= t('cg.reports.title') %></th>
+                      <th><%= t('cg.reports.location') %></th>
+                      <th><%= t('cg.reports.longitude_latitude') %></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @reports.each do |report| %>
+                      <tr>
+                        <td>
+                          <%= link_to image_tag(report.image(:thumb), class: 'img-circle thumb'), report.image.url, target: '_blank' %>
+                        </td>
+                        <td>
+                          <% if report.team %>
+                            <%= report.team.name %>
+                          <% else %>
+                            <%= t('cg.reports.none') %>
+                          <% end %>
+                        </td>
+                        <td>
+                          <%= report.title %>
+                        </td>
+                        <td>
+                          <% if report.location.present? %>
+                            <%= report.location %>
+                          <% else %>
+                            <%= t('cg.reports.none') %>
+                          <% end %>
+                        </td>
+                        <td>
+                          <% if report.longitude && report.latitude %>
+                            <%= link_to "#{report.latitude}, #{report.longitude}", "https://www.openstreetmap.org/#map=19/#{report.latitude}/#{report.longitude}", target: '_blank' %>
+                          <% else %>
+                            <% t('cg.reports.none') %>
+                          <% end %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="about">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title"><%= t('cg.reports.about') %></h4>
+      </div>
+
+      <div class="modal-body">
+        <%= t('cg.reports.map_intro').html_safe %>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('cg.reports.close') %></button>
+      </div>
+    </div>
+  </div>
+</div>

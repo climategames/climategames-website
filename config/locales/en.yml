@@ -1,0 +1,675 @@
+en:
+  activerecord:
+    attributes:
+      report:
+        awards: Awards
+        base_locale: Base locale
+        category: Category
+        date_time: Date + time
+        description: Description
+        image: Image
+        internal_memo: Internal memo
+        latitude: Latitude
+        location: Location
+        longitude: Longitude
+        moderation_outcome: Moderation Outcome
+        password: Password
+        password_confirmation: Password confirmation
+        team: Team
+        title: Title
+      team:
+        name: Name
+        password: Password
+        password_confirmation: Password confirmation
+    models:
+      moderator: Moderator
+      report: Report
+      team: Team
+    successful:
+      messages:
+        created_f: "%{model} was successfully created."
+        created_m: "%{model} was successfully created."
+        updated_f: "%{model} was successfully updated."
+        updated_m: "%{model} was successfully updated."
+  cg:
+    awards:
+      award_1: The Best Team Name Medal
+      award_10: The Invisibility Cloak
+      award_10_description: Awarded to the team who remained undercover and underground. You reported the action but left no trace. Think chameleons, termites hard at work where no one can see, mushrooms springing up with no warning and disappearing just as quickly. The most spectacular cloak-and-dagger action wins this award! Although of course we won’t ever know if you came to the award ceremony to pick it up.
+      award_11: The Big Splash Cup
+      award_11_description: Congratulations! You made the news headlines – everyone is talking about your action around the water cooler. Awesome pictures of your team’s mission are being tweeted faster than your post-adventure heartbeat. While your friends wearing the Invisibility Cloak moved like a barely-perceptible ripple on the surface of the water, you were busy performing in the spotlight. An unforgettable image that tells a catchy story is all you need to win this award, but a good dose of courage, creativity and cheek won’t do any harm.
+      award_12: The Insurrectionary Innovation Badge
+      award_12_description: Untangle your imagination from the Mesh. Win this award by causing beautiful trouble and inventing forms of creative disobedience the world has never seen before. It might be vivid colours and costumes, quirky choreography and hoaxes, parties in strange places, stunning sounds and irresistible tactics…. If you’re thinking of holding a march or a rally, no need to apply here.
+      award_13: The Cup for Best Crowd Choreography
+      award_13_description: Your team knows how to move. Even better it enables other people to groove together and take part in the adventure with you. You are a herd of antelopes leaping, a mischief of scampering mice. You are a watch of nightingales gliding across the horizon, a nuissance of cats springing into the night. Get the movements moving, and the Cup is yours.
+      award_14: The Electronic Disobedience Medal
+      award_14_description: You might be a team of one or a gaggle of geeks, you might like to sit in your bedroom fingers at the ready, tapping code, testing portals. This Award is for the most effective form of electronic disobedience that takes place within the networks of the Mesh during the Games. Combining street and cyberspace action is always a winning formula.
+      award_15: The Plan B Badge for Spontaneity
+      award_15_description: 'You turned up on the day and everything went wrong: your team got lost, you went to the wrong place, you forgot the props or Team Blue managed to get there first. But it doesn’t matter because you had a plan B (or at least the power of spontaneity) and just went for it, keeping everyone’s safety in mind and your nerves intact.'
+      award_16: The Carry On Resisting Trophy
+      award_16_description: You don’t win with one action, but by building a resilient movement that never goes home. This award is for acts which leave a legacy, seeds sown for the long term. Perhaps you opened up space, constructed a new territory, invented new forms of life that will carry on despite the Mesh. Let’s build the structures and tools now to keep on going tomorrow and beyond. The future needs us!
+      award_1_description: Every gamer and onlooker will have the chance to nominate the team with the best name. In the Amsterdam games, there were the Rubberduck Armada, Dirty Lil Monkeys and Vegan Grill Masters. We are sure that for COP21 teams will come up with names that tickle us from the inside.
+      award_2: The Hive Mind Award
+      award_2_description: Like a swarm of ants scattering across the territory, you are leaving trails to the many forms of the Mesh. To win this prize you will have photographed and reported, traced and mapped the Mesh’s manifestations onto the game space. You are the intelligence of the games; without you and your intel reports we are nothing.
+      award_3: The Award for Ultimate Unexpectedness
+      award_3_description: The Mesh wants to know where you are and what you are doing – always! That plastic thing in your hand works very hard for the Mesh’s security minions. To control things you need information, predictions, knowledge. The thing that disturbs the Mesh most however is being taken by surprise. You get this award for the action that no one expected. Don’t forget to take yourself by surprise too!
+      award_4: The Courage Is Contagious Cup
+      award_4_description: Respect your comfort zone but don’t be afraid to explore the edges, that’s where things change. No struggle has ever been won without daring to jump into the unknown. Courage comes from the heart, from within, but don’t worry, your team is there for you – together you can win this trophy.
+      award_5: The Pissed Myself Cup
+      award_5_description: Awarded to the team who made us LOL, who know that transforming the world has to be fun. Think the pleasure principle, playfulness, priceless pranks. Taking yourself too seriously will not win you this award.
+      award_6: The Most Effective Action Award
+      award_6_description: Win this award if your gameplay results in a significant impact and disruption in the flows of the Mesh. Think immediate CO2 reductions, dismantling critical nodes of toxic power and blocking industry lobbyists. Your action will not just be communicative but must have a concrete material effect.
+      award_7: The Future Now Prize
+      award_7_description: Awarded to the team who builds new worlds in the shell of the old, embodying solutions in the present. Think planting disobedient gardens, sharing something for free, experiencing the collective joy of horizontality. Don’t wait for the revolution, live as if you were already free.
+      award_8: The Copcop Spotters Badge
+      award_8_description: 'This is a badge for the eagle-eyed observers or moles making their moves underground! You scan the streets for the Mesh’s sidekick, Team Blue. With a mobile phone in your hand and a bike between your legs you are reporting Team Blue’s every move, as it tries to obstruct us playing the Games. Take pictures/videos of any of their abusive behaviour, mark positions on the map and enable the flow of resistance. But be specific: How many? Are they moving or stationary? What mood are they in? etc… No need to cause unnecessary panic!'
+      award_9: The Solidarity and Symbiosis Award
+      award_9_description: 'The tendency in ecosystems is to associate, build relationships, and cooperate. They are symbiotic networks of mutual support. The team winning this award will have been cooking meals for rebels, helping with legal support, scouting for a team, healing and nurturing others. You are the dance of the wasp and the orchid, clownfish swimming with the sea anemones. You might even create dazzling diversions for Team Blue to help another team succeed. Remember: we can only win the Games together.'
+      no_awards_found: No awards found.
+      nominate: Nominate
+      scroll: Scroll horizontally for more
+      trophies:
+        mention: Distinction
+        runner_up: Runner Ups
+        winner: Winners
+    climate_games_amsterdam: Climate Games Amsterdam
+    climate_games_name: Climate Games
+    contact: Contact
+    copy:
+      awards:
+        by: by
+        index:
+          awards: 
+        introduction: |
+          <p>The Climate Games COP21 have seen more than 120 teams organising 140 beautiful, quirky, funny, courageous, disobedient actions. And as each team selected the awards that best represented their action (and fellow teams chose the awards they felt they really deserved), we had a fantastic list of nominations that was presented to a delirious crowd during the unforgettable Awards Ceremony that took place on December 13th.
+          For each award, two finalists were presented to the public which was tasked with deciding between them through a magnificent fox-powered-clap-o-metre. Obviously it was often extremely difficult to choose, so there have been honourable mentions, ties, and even surprise winners.</p>
+
+          <p>Here is the recap list of them all…</p>
+        redlines_are_not: REDLINES ARE NOT FOR CROSSING
+      home:
+        11_12_dec_2015: 11 – 12 DEC 2015
+        13_dec_2015: 13 DEC 2015
+        30_nov_2015: 30 NOV 2015
+        5_6_dec_2015: 1 – 10 DEC 2015
+        add_report: Add Report
+        and_beyond: AND BEYOND!
+        april_2016: APRIL 2016
+        awards: AWARDS
+        awards_nominations: Awards Nominations
+        awards_party_byline: Awards Party - Paris + online - Sun 13 Dec - 6pm
+        calendar: Calendar
+        ceremony_celebration: Join us for a magical awards ceremony and celebration!
+        click_to_scroll: Click to scroll
+        climate_catastrophe_unraveling: 'The climate catastrophe is unraveling our life support systems and dispossessing communities everywhere. And this is just the beginning. For 20 years (hence COP21) the same players have been playing by the same rigged rules: “business as usual”. The only thing that has come out of the talks is hot air and a rise of CO2 emissions of over 60%. This absurd show cannot be left unchallenged.'
+        climate_justice_movement_rising: A climate justice movement is rising (even faster than the temperatures and sea levels!) and Paris will be a world stage where we, people power, raise the curtain on the smoke and mirrors of false corporate promises and pierce through the Mesh’s hold on us.
+        date_and_location: 30 Nov - 12 Dec 2015, Paris & worldwide
+        day_of_mass_disobedience: As the COP21 finalises its death-dealing deal, teams will join the day of mass disobedience.
+        disobedient_action_adventure: The world’s largest Disobedient Action Adventure Game
+        foxes_and_mushrooms: We are the foxes that wake up at dawn, the mushrooms that appear overnight.
+        greet_opening: To greet the opening of COP21, the Games will scrub away all signs of greenwash.
+        how_to_play: 'How to Play:'
+        latest_reports: Latest Reports
+        let_the_games_begin: Let the games begin.
+        microbes_and_mountains: We are microbes and mountains, starfish and stardust.
+        next_year: It doesn’t end in Paris. Get ready for bold escalation next year.
+        not_convinced: We are not convinced.
+        not_fighting_for_nature: We are not fighting for nature.
+        now: NOW
+        online_paris: ONLINE + PARIS
+        online_paris_global: ONLINE + PARIS + GLOBAL
+        paris: PARIS
+        play_the_trailer: Play the trailer
+        play_wrapup_video: Play wrap up video
+        prep: PREP
+        register_to_plot: Register your team, get trained up in creative action, map the Mesh, and start plotting!
+        round_1: OPENING ROUND
+        round_2: CLOSING ROUND
+        see_the_calendar: SEE THE CALENDAR
+        seven_simple_moves: Climate Games in 7 simple moves
+        speed_dating_training: Whilst the summit continues its bla bla the momentum of the games will build-up as actions pop up in Paris and beyond.
+        steps:
+          carry_out_adventure: <span class="accent">Carry out your adventure!</span> Then <strong><a href="/en/reports/new">anonymously post reports</a></strong>, images, video on the map of the <strong><a href="/en/reports">global gaming field</a></strong>.
+          closing_awards_ceremony: Don’t miss the magical closing <strong><a href="/en/awards">awards ceremony</a></strong> on 13 December!
+          download_the_app: Check out the <strong><a href="/en/reports">interactive map</a></strong>. At any time, you can feed the Games’ collective intelligence by being ant- or eagle-like, tracing, photographing, anonymously reporting and mapping the manifestations of the Mesh onto the global gaming field. This also includes monitoring the movements of the Mesh’s sidekick, Team Blue, who will be working to spoil our fun.
+          form_a_team: <strong><a href="/en/teams/new">Form a team</a></strong> with friends and register online anonymously or <strong><a href="/en/faqs#play-solo">go single-handed.</a></strong>
+          get_ready: Get ready to play at any moment between the Opening (30 Nov) and Closing round (12 Dec) as part of the day of mass action.
+          plan_an_adventure: <span class="accent">Plan an adventure</span> to disrupt the workings of the Mesh – in Paris, in your own habitat or online.
+          post_a_report: Every time you <strong><a href="/en/reports/new">post a report</a></strong>, the whole game gains momentum by winning collective points. Your team can also win points and badges for effective and striking gameplay.
+        the_games: The Games
+        the_games_story: It’s December 2015. You have a heart filled with courage, a mobile phone and plans for creative mischief. Your team is ready to merge street and online disobedience. The COP21 UN climate summit is just opening in Paris. Manifestations of ‘the Mesh’ — austerity-dictating politicians, fossil fuel corporations, industry lobbyists, peddlers of false solutions and greenwashers – are converging to solve the climate catastrophe. Or so they tell us.
+        training: INBETWEEN
+        view_awards: View Awards
+        view_nominations_join_party: View Nominations and Join the Party
+        we_are_nature_defending_itself: We are nature defending itself.
+        what_are_climate_games: are where action-adventure meets actual change. Anyone can play this real-time, real-world game and turn Paris and the world into a giant, direct action playing field for climate justice. We have everything to play for – but time is running out.
+        why_play: Why Play?
+        your_objective: Your objective is to join the global movements swarming to shift the game against profit and in favour of life.
+      reports:
+        index:
+          coming_soon: Coming Soon
+        maintenance: We are currently performing maintenance. Reports can not be added right now. Please try again in a short while.
+        suspended:
+          message: The game map is currently suspended.
+      statement:
+        our_response: Read the Climate Games response to the recent attacks.
+      teams:
+        edit:
+          complete_your_team_profile: complete your team profile.
+          edit_team_profile: Edit team profile
+          if_this_is_your: If this is your team,
+          image: Avatar
+          nature: Team nature
+          this_team_has_an_identity: This team has an identity crisis.
+          this_team_has_one_badge: This team has 1 badge
+          upload_your_own: Upload your own avatar
+        index:
+          a_team_is_a_group: A team is a group of friends (new or old) who have decided to work together to plan and carry out an adventure that helps dismantle the Mesh. Your team might share a local habitat, the issues you want to take action on, the tactics you want to use, a particular skill you have to offer (e.g., wild dancing or action medics), or a mixture of all of these.
+          form_a_team: Form a team of two to two hundred, work non-hierarchically and autonomously, and support each other in every stage of the adventure. But remember, 10 groups of 10 people can often achieve more than 100 people acting en masse (for more info on team formation check out this great <a href="http://www.seedsforchange.org.uk/affinitygroups" title="http://www.seedsforchange.org.uk/affinitygroups" target="_blank">resource</a>). We encourage teams to register here (everything will be anonymous).  Provide your team name, profile and avatar and start to play.
+          get_prepared: Get prepared
+          join_the_games: Join the games!
+          name: Name
+          not_ready_yet: Not ready yet?
+          ready_yet: Ready?!
+          teams: Teams
+          what_is_a_team: What is a team?
+        join:
+          register_a_team: Register a team
+          you_are_joining: You are joining the world's largest Disobedient Action Adventure Game!
+        maintenance: We are currently performing maintenance. Teams can not be created or updated right now. Please try again in a short while.
+        new:
+          add_a_description: Add a description of your team
+          badges_are_awarded: A badge will be awarded for the most creative team name!
+          browse_registered: Browse registered teams
+          get_prepared: Get prepared
+          how_we_keep_you_safe:
+            point_1: No sign in – you just use your team password whenever you make a report
+            point_2: Privacy – no cookies ever
+            point_3: Anonymity – individuals are never linked to teams or adventure reports
+            point_4: Security – all communication with website is encrypted
+            point_5: Self-protection – all reports moderated to remove inadvertently identifying information
+            title: How we keep you safe
+          not_ready_yet: Not ready yet?
+          register_a_team: Register a team
+          shared_team_password: Shared team password
+          shared_team_password_confirmation: Confirm shared password
+          team_already_registered: 'Team already registered? '
+          team_name: Team name
+          youll_need_this: You'll need this to add to your profile, edit your profile and share reports of your team's adventures. Make sure that you remember it – if you forget it, you'll need to register your team again (with a different name)
+        show:
+          nominated_for: Nominated for
+          pending_reports:
+            one: This team also has 1 pending report.
+            other: This team also has %{count} pending reports.
+          team_reports:
+            one: '1 report:'
+            other: "%{count} reports:"
+    footer:
+      contact_us_at: Contact us at
+      enter_your_email: Enter your email...
+      follow_the_games: Follow the games
+      submit: Submit
+      subscribe: Subscribe to get updates
+      we_wont_spam: We won't spam you or share your email address. Your email address will never be published or associated with any team or adventure report.
+    menu:
+      about: About
+      add_report: Add Report
+      awards: Awards
+      faqs: FAQs
+      game_map: Game Map
+      get_involved: Join
+      get_updates: Get Updates
+      home: Home
+      join: Join
+      latest_reports: Latest Reports
+      map: Map
+      player_guide: Player Guide
+      preperation: Prep
+      press: Press
+      reports: Reports
+    meta:
+      description:
+        a_report_from: An adventure report from
+    pictures:
+      default_image_url: https://www.climategames.net/assets/missing.jpg
+      link_to_original: Link to original
+    reports:
+      about: What's this about?
+      add_another_report: Add another report
+      add_link: Add link
+      add_picture: Add picture
+      add_report: Add report
+      adventure: Adventure report
+      all_awards: All awards
+      all_reports: All reports
+      all_teams: All teams
+      at_about: at about
+      at_time: 'on'
+      attach_to_a_team: Attach to a team
+      automatically_translated: Automatically translated.
+      awards: Which awards are you going for?
+      back_to_the_map: Back to the map
+      category: 
+      close: Close
+      create_report: Create Report
+      create_team: Create Team
+      date_time: When?
+      description: Description
+      description_placeholder: What mischevious adventures or devious happenings are happening here?
+      dont_despair: Don’t despair if your report isn’t immediately viewable on the gaming field—there may be a slight delay as all reports are moderated to make sure Team Blue is not playing tricks on us.
+      i_agree: I agree!
+      if_no_team_message:
+        action: create a team
+        end: first.
+        start: If you don't already have one, you might like to
+      image: Image
+      images: 
+      intel: Intel report
+      invalid_moderation_outcome: The report status in invalid
+      is_incorrect: The secret word for your team was incorrect
+      is_invalid: The coordinates of the location of your report could not be found
+      join_a_team: join a team!
+      link_count: Link Count
+      links: Links
+      links_count: 
+      links_hint: 'Link to as many relevant resources as you wish:'
+      list: List
+      location: Where?
+      longitude_latitude: Longitude / Latitude
+      map: Map
+      map_intro: |-
+        <p>Welcome to the gaming field. Now you can feed the the Games’ collective intelligence by anonymously marking the manifestations of the Mesh on the the map with your intel reports (you can add photos, text etc). During the Games (30th Nov – 12th Dec) you will be able to add your own team’s adventure reports. Last but not least, if any teams see Team Blue trying to spoil the fun, then help fellow teams by submitting a report revealing their location.</p>
+
+        <p>And don’t despair if your report isn’t immediately viewable on the gaming field—there may be a slight delay as all reports are moderated to make sure Team Blue is not playing tricks on us.</p>
+      more_info: More info...
+      more_reports_from_this_team:
+        one: See one more report from this team
+        other: See %{count} more report from this team
+      new_report: New Report
+      no_reports_found: No reports found.
+      no_results: No results match your criteria.
+      no_team: No team
+      none: None
+      optional: "(optional)"
+      or: or
+      password: Password
+      pictures: Pictures
+      please_select_the_awards: Select up to 3 awards
+      remove: Remove
+      report: Report
+      reports: Reports
+      search_for_place: Select on map or type here
+      select_a_team: Select a team
+      submit_report: Send your report
+      team: Team
+      thanks: Thanks for playing!
+      thanks_moderation_message: "<p>Your report has been received and will be checked over before it's published.</p> <p>Remember there will be a slight delay before your report appears on the map. Thanks for your understanding.</p>"
+      title: Title
+      url: URL
+      view_larger_map: View larger map
+    site_description: The Climate Games is a disobedient action adventure game anyone can play during the Paris COP21 Climate summit 30 November – 12 December. Play on the streets of Paris, online and everywhere. We are Nature defending itself!
+    subscribe_for_update: Subscribe for updates
+    team:
+      one: team
+      other: teams
+      zero: teams
+    teams:
+      secret_word_incorrect: The secret word for your team was incorrect
+    the_climate_games: The Climate Games
+    tribe:
+      one: tribe
+      other: tribes
+    tweets_by: Tweets by
+    we_are_nature: We are <strong>nature</strong> defending itself
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names:
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    order:
+    - :year
+    - :month
+    - :day
+  datepicker:
+    dformat: "%d/%m/%Y"
+    pformat: DD/MM/YYYY
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  dayViewHeaderFormat: MMMM YYYY
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      other_than: must be other than %{count}
+      present: must be blank
+      record_invalid: 'Validation failed: %{errors}'
+      restrict_dependent_destroy:
+        many: Cannot delete record because dependent %{record} exist
+        one: Cannot delete record because a dependent %{record} exists
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
+  helpers:
+    label:
+      page:
+        title: Title
+      refinery_user:
+        login: Login
+        password: Password
+        remember_me: Remember me
+      user:
+        email: Email
+        full_name: Full name
+        password: Password
+        password_confirmation: Password confirmation
+        username: Username
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+  members:
+    rear_of_id: 
+  moderation:
+    adventure_reports_approved: Adventure reports approved
+    current_moderator_alert: "%{username} is currently moderating this report"
+    dashboard: Dashboard
+    edit: Edit
+    edit_moderator: Edit Moderator
+    edit_report: Edit Report
+    form_invalid: Form is invalid
+    game_states: Game States
+    intel_reports_approved: Intel reports approved
+    invalid_category: 'Invalid category: %{category}'
+    logged_in_as: Logged in as
+    moderator:
+      enabled: Enabled
+      password: Password
+      password_confirmation: Password confirmation
+      super_cape: Super cape
+      username: Username
+    moderators: Moderators
+    moderators_enabled: Enabled moderators
+    moderators_super_cape: Caped moderators
+    need_enabling: Your moderator status needs to be enabled
+    need_logged_in: You need to be logged in
+    please_wait_moderation_enabled: Dear moderator, please wait for Climate Games to enable your moderator status.
+    report:
+      current_moderator: Moderator
+      delete_image: Delete image
+      internal_memo: Internal memo
+      moderation_outcome: Moderation outcome
+      team: Team
+      title: Title
+    report_awards: 
+    reports: Reports
+    reports_all: Reports All
+    reports_approved: Reports Approved
+    reports_pending: Reports Pending
+    reports_rejected: Reports Rejected
+    session:
+      log_in: Log in
+      log_out: Log out
+      logged_in: Logged in!
+      logged_out: Logged out!
+      login_fail: Username or password incorrect
+    sign_up: Sign up
+    signed_up_success: You signed up successfully
+    successfully_updated_moderator: Successfully updated moderator %{username}
+    successfully_updated_report: Successfully updated report
+    teams: Teams
+    teams_with_reports: Teams with reports
+    time: Time
+    xno: 'no'
+    xyes: 'yes'
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: 
+      format:
+        delimiter: 
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: 
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ","
+  refinery:
+    admin:
+      delete:
+        refinery:
+          admin:
+            resources:
+              resource:
+                message: 
+      menu:
+        reorder_done: Reorder done
+      pages:
+        form_advanced_options:
+          password_protected_description: Need insider password to see this page?
+          password_protected_help: When checked the user needs to know the login details only Climate Game creators know
+          password_protected_title: Password protect
+    core:
+      config:
+        site_name: Climate Games
+  simple_form:
+    hints:
+      defaults:
+        awards_html: 
+        base_locale_html: 
+        category_html: 
+        date_time_html: 
+        description_html: 
+        id_rear_image_html: 
+        image_html: 
+        internal_memo_html: 
+        latitude_html: 
+        location_html: 
+        longitude_html: Longitude
+        moderation_outcome_html: 
+        name_html: 
+        nature_html: 
+        password_confirmation_html: 
+        password_html: 
+        team_html: 
+        title_html: 
+        url_html: 
+        username_html: 
+    labels:
+      defaults:
+        awards_html: 
+        category_html: 
+        date_time_html: Date + Time
+        description_html: Description
+        image_html: 
+        latitude_html: Latitude
+        location_html: Location
+        longitude_html: Longitude
+        name_html: Name
+        password_confirmation_html: 
+        password_html: 
+        team_html: Team
+        title_html: Title
+    placeholders:
+      defaults:
+        base_locale_html: 
+        category_html: 
+        date_time_html: Date + Time
+        description_html: Description
+        internal_memo_html: 
+        latitude_html: Latitude
+        location_html: Location
+        longitude_html: |
+          Longitude
+        name_html: 
+        nature_html: 
+        password_confirmation_html: 
+        password_html: 
+        title_html: Title
+        url_html: 
+        username_html: 
+    required:
+      html: <abbr title="required">*</abbr>
+  support:
+    array:
+      last_word_connector: ", and "
+      two_words_connector: " and "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: pm
+  timepicker:
+    dformat: "%R"
+    pformat: HH:mm

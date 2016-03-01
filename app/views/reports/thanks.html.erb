@@ -1,0 +1,15 @@
+<div class="row content side-padding">
+  <div class="side-padding">
+  	<h1><%= t('cg.reports.thanks') %></h1>
+
+  	<%= t('cg.reports.thanks_moderation_message').html_safe %>
+
+  	<p>
+  		<a class="btn btn-magenta" href="<%= new_report_path(locale: I18n.locale) %>"><%= t('cg.reports.add_another_report') %></a>
+  	</p>
+  	<p>
+		<a class="btn btn-green" href="<%= reports_path(locale: I18n.locale) %>"><%= t('cg.reports.back_to_the_map') %></a>
+	</p>
+  </p>
+  </div>
+</div>

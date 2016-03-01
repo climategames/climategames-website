@@ -1,0 +1,12 @@
+<h1><%= t('moderation.edit_moderator') %>: <%= @moderator.username %></h1>
+
+<%= simple_form_for @moderator, url: moderation_moderator_path(@moderator, locale: locale.to_s) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :password, required: true, label: t("moderation.moderator.password") %>
+  <%= f.input :password_confirmation, required: true, label: t("moderation.moderator.password_confirmation") %>
+  <%= f.input :enabled, label: t("moderation.moderator.enabled") %>
+  <%= f.input :super_cape, label: t("moderation.moderator.super_cape") %>
+  <div class="text-right margin-top-20 margin-bottom-20">
+    <%= f.button :submit, class: 'btn btn-magenta' %>
+  </div>
+<% end %>

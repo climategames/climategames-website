@@ -1,0 +1,9 @@
+<h1><%= t('moderation.dashboard') %></h1>
+<table class='dashboard-data index-table'>
+  <%- @rows.each do |r| %>
+    <tr>
+      <th><%= r[0] %></th>
+      <td><%= r[1] %></td>
+    </tr>
+  <%- end %>
+</table>

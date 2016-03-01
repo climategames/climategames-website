@@ -1,0 +1,23 @@
+<h1><%= t("moderation.report_awards") %></h1>
+
+<table class="index-table data-table report-awards">
+  <thead>
+    <tr>
+      <th/>
+      <% @awards.each do |award| %>
+        <th><%= award.name %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= link_to report.title, report_path(report, locale: I18n.locale), target: "_blank" %> (<%= report.team.try(:name) %>)</td>
+        <% @awards.each do |award| %>
+          <% count = @counts_for[award][report] || 0 %>
+          <td<%= @counts_for[award].has_key?(report) ? " class=green" : "" %>><%= count %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

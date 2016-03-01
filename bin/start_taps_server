@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+
+require 'highline/import'
+
+APP_PATH = File.expand_path('../../config/application', __FILE__)
+require_relative '../config/boot'
+require_relative '../config/application'
+
+def parse_erb(hash)
+  result = {}
+  hash.each do |key, value|
+    if value.respond_to?(:encoding)
+      result[key] = ERB.new(value).result
+    else
+      result[key] = value
+    end
+  end
+  result
+end
+
+def taps_server_cmd(adapter:,
+                    host:,
+                    db_username:,
+                    db_password:,
+                    database:,
+                    server_port:,
+                    server_username:,
+                    server_password:)
+  erb =
+    "taps server <%= server_port.present? ? '-p ' + server_port.to_s + ' ' : '' %><%=adapter%>://<%=db_username%><%= db_password.present? ? ':' + db_password : ''%>@<%=host%>/<%=database%> <%=server_username%> <%=server_password%>"
+  ERB.new(erb).result(binding)
+end
+
+all_db_config = YAML.load_file(Rails.root.join('config', 'database.yml'))
+env_db_config = parse_erb(all_db_config[Rails.env])
+
+server_password = ask("Enter password for taps server: ") { |q| q.echo = false }
+
+cmd = taps_server_cmd(
+  adapter: env_db_config["adapter"],
+  host: env_db_config["host"],
+  db_username: env_db_config["username"],
+  db_password: env_db_config["password"],
+  database: env_db_config["database"],
+  server_port: ENV["TAPS_PORT"] || 5080,
+  server_username: env_db_config["username"],
+  server_password: server_password
+)
+
+puts system(cmd)

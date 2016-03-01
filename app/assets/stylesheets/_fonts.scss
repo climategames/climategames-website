@@ -1,0 +1,39 @@
+/*
+ * Was used by splash page, we can throw all the below away and start again if we wish
+ */
+
+@mixin font-family-no-src($name) {
+    @font-face {
+        font-family: $name;
+    }
+}
+
+@mixin font-family-simple($name) {
+    @font-face {
+        font-family: $name;
+        src: font-url("#{$name}.eot") /* EOT file for IE */
+    }
+    @font-face {
+        font-family: $name;
+        src: font-url("#{$name}.ttf") /* TTF file for CSS3 browsers */
+    }
+}
+
+@mixin font-family-full-browser-support($name) {
+    @font-face {
+        font-family: $name;
+        src: url("#{$name}.eot"); /* IE9 Compat Modes */
+        src: url("#{$name}.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+        url("#{$name}.woff2") format('woff2'), /* Super Modern Browsers */
+        url("#{$name}.woff") format('woff'), /* Pretty Modern Browsers */
+        url("#{$name}.ttf") format('truetype'), /* Safari, Android, iOS */
+        url("#{$name}.svg#svgFontName") format('svg'); /* Legacy iOS */
+    }
+}
+
+// @include font-family-no-src(Phosphate-Solid);
+// @include font-family-no-src(GothamHTF-Book);
+
+@include font-family-simple(Phosphate-Solid);
+@include font-family-simple(GothamHTF-Book);
+@include font-family-simple(gothamrnd-bold);

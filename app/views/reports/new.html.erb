@@ -1,0 +1,9 @@
+<div class="row content side-padding">
+  <div class="side-padding">
+    <h1><a class="mobile-only" href="<%= reports_path(locale: I18n.locale) %>"><i class="glyphicon glyphicon-chevron-left"></i></a> <%= t('cg.reports.new_report') %></h1>
+
+    <%= simple_form_for @report, url: reports_path(locale: I18n.locale) do |f| %>
+      <%= render partial: 'reports/form', locals: { f: f } %>
+    <% end %>
+  </div>
+</div>

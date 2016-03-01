@@ -1,0 +1,218 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@mixin font-family-no-src($name) {
+    @font-face {
+        font-family: $name;
+    }
+}
+
+@mixin font-family-simple($name) {
+    @font-face {
+        font-family: $name;
+        src: font-url("#{$name}.eot") /* EOT file for IE */
+    }
+    @font-face {
+        font-family: $name;
+        src: font-url("#{$name}.ttf") /* TTF file for CSS3 browsers */
+    }
+}
+
+@mixin font-family-full-browser-support($name) {
+    @font-face {
+        font-family: $name;
+        src: url("#{$name}.eot"); /* IE9 Compat Modes */
+        src: url("#{$name}.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+        url("#{$name}.woff2") format('woff2'), /* Super Modern Browsers */
+        url("#{$name}.woff") format('woff'), /* Pretty Modern Browsers */
+        url("#{$name}.ttf") format('truetype'), /* Safari, Android, iOS */
+        url("#{$name}.svg#svgFontName") format('svg'); /* Legacy iOS */
+    }
+}
+
+// @include font-family-no-src(Phosphate-Solid);
+// @include font-family-no-src(GothamHTF-Book);
+
+@include font-family-simple(Phosphate-Solid);
+@include font-family-simple(GothamHTF-Book);
+@include font-family-simple(gothamrnd-bold);
+
+@import 'fonts';
+
+$yellow: yellow;
+$darkeryellow: #cc0;
+$darkblue: #00293d;
+$darkerblue: #023;
+$orange: #F47040;
+$white: #fff;
+
+$sans-serif-font: Phosphate-Solid, Verdana, Arial, sans-serif;
+$serif-font: GothamHTF-Book, "Times New Roman", Times, serif;
+$round-font: gothamrnd-bold;
+
+$body-background-color: $darkerblue;
+$bold-text-font-family: $sans-serif-font;
+$button-background-color: $darkblue;
+$button-hover-color: $yellow;
+$button-shadow-color: black;
+$button-text-color: $yellow;
+$content-background-color: $darkblue;
+$header-text-color: $yellow;
+$message-strong-font-family: $round-font;
+$splash-background-color: $yellow;
+$splash-strong-text-color: $darkerblue;
+$splash-text-color: $darkblue;
+$text-color: $darkeryellow;
+$text-font-family: $serif-font;
+$text-link-color: $orange;
+$text-link-visited-color: $orange;
+$title-font-family: $round-font;
+
+body, html {
+    height: 100%;
+}
+
+body {
+    color: $text-color;
+    font-family: $text-font-family;
+    background-color: $body-background-color;
+}
+
+a, a:link {
+    color: $text-link-color;
+}
+
+a:visited {
+    color: $text-link-color;
+}
+
+
+.container {
+    overflow: auto;
+    height: 100%;
+}
+
+.backdrop {
+    background-color: $content-background-color;
+    background-repeat: no-repeat;
+    background-position: 4em 2em;
+    background-size: 30%;
+}
+
+.backdrop-bloodcell {
+    background-image: image-url("bloodcell-backdrop.jpeg");
+}
+
+.backdrop-dandelion {
+    background-image: image-url("dandelion-backdrop.png");
+}
+
+.backdrop-spore {
+    background-image: image-url("spore-backdrop.png");
+}
+
+h1 {
+    color: $header-text-color;
+    font-size: 5em;
+    text-align: center;
+    line-height: 80%;
+    font-family: $title-font-family;
+}
+
+#locale {
+    text-align: center;
+}
+
+#left-content-container {
+    margin-top: 2em;
+}
+
+#language-switch-container {
+    .content {
+        margin-top: 40%;
+    }
+
+    #locale {
+        font-size: 200%;
+        margin: 1em;
+        a {
+            margin: 0.25em;
+        }
+    }
+}
+
+#we-are-nature {
+    color: $header-text-color;
+    font-family: $bold-text-font-family;
+    margin-top: -0.2em;
+    margin-right: auto;
+    margin-bottom: 0.8em;
+    margin-left: auto;
+    vertical-align: middle;
+    font-size: 4em;
+    text-align: center;
+    line-height: 0.9;
+    padding: 0;
+    strong {
+        display: block;
+        font-weight: normal;
+        font-size: 200%;
+    }
+}
+
+.twitter-feed {
+    margin-bottom: 1em;
+    float: right;
+}
+
+#splash-message {
+    background: $splash-background-color;
+    background-color: rgba($splash-background-color, 1.0);
+    color: $splash-text-color;
+    padding: 1em;
+    bottom: 0;
+    font-size: 120%;
+    margin: 0;
+    margin-bottom: 1em;
+    strong {
+        color: $splash-strong-text-color;
+        font-family: $message-strong-font-family;
+    }
+    .launch-message {
+        color: $splash-strong-text-color;
+        font-family: $message-strong-font-family;
+        text-align: center;
+        font-size: 110%;
+        margin: 1em 0 1em 0;
+    }
+}
+
+#twitter-feed {
+    margin-top: 1em;
+    min-height: 44em;
+}
+
+.btn-large {
+    background: $button-background-color;
+    color: $button-text-color;
+    margin-bottom: 1em;
+}
+
+.btn-info:hover {
+    background: $button-hover-color;
+    border-color: $button-background-color;
+    color: $button-background-color;
+    box-shadow: none;
+}
+
+.button-row {
+    .btn {
+        width: 100%;
+    }
+}
+
+#link-list {
+    padding: 1em;
+    margin: 1em 0 1em 0;
+    background-color: rgba($content-background-color, 0.8);
+}

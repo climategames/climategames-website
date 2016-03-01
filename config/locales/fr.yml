@@ -1,0 +1,683 @@
+fr:
+  activerecord:
+    attributes:
+      report:
+        awards: Remise des prix
+        base_locale: Base de localisation
+        category: Categorie
+        date_time: Date + heure
+        description: Description
+        image: Image
+        internal_memo: Mémo interne
+        latitude: Latitude
+        location: Lieu
+        longitude: Longitude
+        moderation_outcome: Résultat de modération
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        team: "Équipe"
+        title: Titre
+      team:
+        name: Nom
+        password: Mot de passe
+        password_confirmation: Confirmer le mot de passe
+    models:
+      moderator: 
+      report: Compte rendu
+      team: "Équipe"
+    successful:
+      messages:
+        created_f: "%{model} créée avec succès"
+        created_m: "%{model} créé avec succès"
+        updated_f: "%{model} mise à jour avec succès"
+        updated_m: "%{model} mis à jour avec succès"
+  cg:
+    awards:
+      award_1: La Médaille du Meilleur Nom d’Équipe
+      award_10: La Cape d’Invisibilité
+      award_10_description: Remise à l’équipe qui aura su rester dans l’ombre sans se faire démasquer. Vous avez signalé l’action mais sans laisser de trace. Songez aux caméléons, aux termites qui besognent là où on n’y voit goutte, aux champignons qui poussent sans prévenir et qui disparaissent tout aussi rapidement. Ce sont les actions clandestines les plus spectaculaires qui remportent ce prix ! Même si, bien sûr, nous ne saurons jamais si vous êtes venus à la remise des prix pour la recevoir.
+      award_11: La Coupe de Celleux qui font du Bruit
+      award_11_description: 'Félicitations ! Vous avez fait la une des journaux : on ne parle que de votre action à la machine à café. On twitte les images incroyables de la mission de votre équipe à la vitesse de vos battements de cœur à l’issue de votre aventure. Tandis que vos ami-e-s qui ont revêtu la cape d’invisibilité se sont déplacé-e-s telle une ondulation quasiment imperceptible à la surface de l’eau, vous étiez occupé-e-s à vous produire sous les feux des projecteurs. Tout ce dont vous avez besoin pour obtenir cette récompense, c’est d’une image inoubliable qui raconte une histoire passionnante (mais une bonne dose de courage, de créativité et de culot ne vous feront pas de mal.)'
+      award_12: L’Insigne de l’Innovation Insurrectionnelle
+      award_12_description: Sortez votre imagination des méandres du Réseau. Gagnez cette récompense en provoquant un joyeux bordel et en créant des formes de résistance créative encore inédites. Il peut s’agir de couleurs voyantes et de costumes, de chorégraphies excentriques ou de canulars, de fêtes dans des endroits inattendus, de sons stupéfiants ou de tactiques irrésistibles… Si vous songiez à organiser un défilé ou un rassemblement, ne perdez pas votre temps à postuler chez nous.
+      award_13: La Coupe de la Meilleure Chorégraphie de Foule
+      award_13_description: 'Votre équipe sait se bouger. Mieux encore : elle permet à d’autres personnes de danser tous ensemble et de prendre part à l’aventure à vos côtés. Vous êtes un troupeau d’antilopes qui bondit, une zizanie de souris qui détalent. Vous êtes ces rossignols sentinelles qui glissent sur l’horizon, un fléau de chats qui surgissent dans la nuit. Faites danser les mouvements et la coupe est à vous.'
+      award_14: La Médaille de la Désobéissance Électronique
+      award_14_description: Votre équipe peut être composée d’un-e seul-e ou bien de tout un troupeau de geeks, vous aimez peut-être rester assis-e dans votre chambre, les doigts prêts à faire feu, à tapoter du code, à éprouver la résistance de portails. Cette récompense est réservée aux formes de désobéissance électronique les plus efficaces qui se déroulent dans les méandres du Réseau durant les Jeux. L’action de rue et celle dans le cyberespace ont toujours formé une équipe qui gagne.
+      award_15: L’Insigne du Plan B pour la Spontanéité
+      award_15_description: 'Vous vous êtes pointé-e le jour dit et rien ne s’est passé comme prévu : votre équipe s’était perdue, vous vous êtes rendu au mauvais endroit, vous aviez oublié les accessoires ou bien l’Équipe Bleue vous a coiffé au poteau. Mais c’est sans importance puisque vous aviez un plan B (ou tout du moins la ressource de la spontanéité à votre disposition) et vous avez foncé quand même, sans perdre de vue ni vos moyens, ni la sécurité de tout un-e chacun-e.'
+      award_16: Le Trophée de la Poursuite de la Résistance
+      award_16_description: Ce n’est pas avec une seule et unique action que l’on remporte la partie, mais en construisant un mouvement résilient qui ne regagne jamais ses pénates. Cette récompense est accordée aux actes qui laissent des traces, aux graines qui vont pousser sur le long terme. Peut-être avez-vous ouvert un espace, construit un nouveau territoire, inventé de nouvelles formes de vie qui vont perdurer malgré le Réseau. Construisons dès à présent les structures et les outils pour continuer sur notre lancée demain et pour la suite. L’avenir a besoin de nous !
+      award_1_description: Chaque participant-e aura la possibilité de désigner l’équipe avec le meilleur nom. Aux Jeux d’Amsterdam, il y avait l’Armada des Canards en Plastique, les Sales Ouistitis et les Maîtres du Barbecue Vegan. Nous ne doutons pas que les équipes de la COP21 nous sortiront des noms qui nous chatouilleront de l’intérieur.
+      award_2: La Récompense de l’Esprit de Ruche
+      award_2_description: 'Telle la colonie de fourmis qui se déploie sur tout le territoire, vous pistez les nombreuses incarnations du Réseau. Pour remporter ce prix, il vous faudra photographier, signaler, tracer et répertorier les diverses manifestations du Réseau sur l’espace de jeu. Vous êtes l’intelligence des Jeux : sans vous, nous ne sommes rien.'
+      award_3: La Récompense de l’Ultime Imprévisibilité
+      award_3_description: Le Réseau veut savoir où vous êtes et ce que vous faites – tout le temps ! Ce bidule en plastique que vous tenez dans la main travaille dur au service des laquais de la sécurité du Réseau. Pour pouvoir exercer un contrôle, il faut des informations, des prédictions, des connaissances. Mais ce qui perturbe le plus le Réseau, cependant, c’est de le prendre par surprise. Vous remportez cette récompense pour l’action à laquelle personne ne s’attendait. N’oubliez pas de vous surprendre vous-même au passage !
+      award_4: La Coupe du Courage qui se Propage
+      award_4_description: 'Respectez votre zone de confort, mais n’ayez pas peur d’explorer ses limites ; c’est là qu’il se passe des choses. On ne remporte jamais de lutte si l’on n’ose pas se jeter dans l’inconnu. Le courage vient du cœur, de l’intérieur, mais ne vous en faites pas : votre équipe est là pour vous soutenir – ensemble, vous pouvez remporter ce trophée.'
+      award_5: La Coupe d’On en rit encore
+      award_5_description: Remis à l’équipe qui nous a fait rire, qui sait que changer le monde doit être l’occasion de s’amuser. Songez au principe de plaisir, à l’espièglerie, aux tours pendables. Vous ne remporterez pas cette récompense si vous vous prenez trop au sérieux.
+      award_6: La Récompense de l’Action la Plus Efficace
+      award_6_description: Vous remporterez cette récompense si votre tactique a un impact significatif et provoque une perturbation dans les flux du Réseau. Songez aux réductions immédiates de CO2, au démantèlement des principaux points de ralliement du pouvoir toxique et à empêcher les lobbyistes de l’industrie d’agir. Votre action ne peut se contenter d’être communicative, elle doit aussi avoir des répercussions matérielles concrètes.
+      award_7: Le Prix du Futur Dès Maintenant
+      award_7_description: 'Remis à l’équipe qui construit de nouveaux mondes dans la carcasse de l’ancien, qui met en service des solutions dans le temps présent. Songez à planter des jardins désobéissants, à exercer le partage sans contrepartie, à faire l’expérience de la joie collective de l’horizontalité. N’attendez pas la révolution : vivez comme si vous étiez déjà libre.'
+      award_8: L’Insigne de l’Éclaireur de Flicaille
+      award_8_description: 'Voici un insigne destiné aux observateurs-trices au regard acéré ainsi qu’aux taupes qui progressent dans l’ombre ! Vous arpentez les rues à la recherche des acolytes du Réseau : l’Équipe Bleue. Téléphone portable en main et vélo entre les jambes, vous signalez tous les mouvements de l’Équipe Bleue, tandis qu’elle tente de nous empêcher de participer aux Jeux. Photographiez ou filmez leurs moindres mouvements, notez leurs emplacements sur la carte et donnez à la résistance la possibilité de se déployer. Mais soyez précis : combien sont-ils ? Sont-ils mobiles ou statiques ? De quelle humeur sont-ils ? Etc. Pas besoin de paniquer pour un rien!'
+      award_9: La Récompense de la Solidarité et de la Symbiose
+      award_9_description: 'Au sein des écosystèmes, la tendance est à l’association, au tissage de liens et à la coopération. Ce sont des réseaux symbiotiques de soutien mutuel. L’équipe qui remporte cette récompense aura cuisiné de bons petits plats pour les rebelles, apporté son aide juridique, servi d’éclaireur pour une équipe, soigné et encouragé les autres. Vous êtes l’abeille qui danse avec l’orchidée, le poisson-clown qui nage avec les anémones de mer. Vous pourriez peut-être bien aussi créer des diversions bien voyantes destinées à l’Équipe Bleue afin d’aider une autre équipe à réussir. Souvenez-vous : on ne peut gagner les Jeux qu’ensemble.'
+      no_awards_found: Aucun prix trouvé.
+      nominate: Nominé-e
+      scroll: Faire défiler horizontalement pour en savoir plus
+      trophies:
+        mention: Distinction
+        runner_up: Finalist-e-s
+        winner: Gagnant-e-s
+    climate_games_amsterdam: Climate Games Amsterdam
+    climate_games_name: Climate Games
+    contact: Contact
+    copy:
+      awards:
+        by: de
+        index:
+          awards: 
+        introduction: |-
+          <p>Les Climate Games COP21 ont vu plus de 120 équipes qui ont organisé 140 actions magnifiques, originales, drôles, courageuses et désobéissantes. Et comme chaque équipe a sélectionné les prix qui représentaient le mieux leur action (et que les autres équipes ont choisi les prix qu’elles pensaient vraiment mériter), nous avons concocté une superbe liste de nominations qui a été présentée à la foule en délire lors de la Cérémonie de Remise des Prix, le 13 décembre dernier.
+          Pour chaque prix, 2 finalistes ont été présenté-e-s au public qui se devait alors de les départager grâce à notre extraordinaire applaudimètre à tête de renard. Bien évidemment le choix s’est souvent révélé épineux, il y a donc des mentions honorables, des ex-aequo et même des gagnant-e-s surprise.</p>
+
+          <p>Voici la liste complète…</p>
+        redlines_are_not: IL NE FAUT PAS FRANCHIR LES LIGNES ROUGES
+      home:
+        11_12_dec_2015: 11 – 12 DÉC 2015
+        13_dec_2015: 13 DÉC 2015
+        30_nov_2015: 30 NOV 2015
+        5_6_dec_2015: 1 – 11 DÉC 2015
+        add_report: Ajouter un compte rendu
+        and_beyond: ET APRÈS!
+        april_2016: AVRIL 2016
+        awards: |
+          REMISE DES PRIX
+        awards_nominations: Remise des prix
+        awards_party_byline: Remise des Prix + Fête - Paris + sur le net - Dim. 13 Dec. 18h
+        calendar: Calendrier
+        ceremony_celebration: Rejoignez nous pour une cérémonie de remise des prix et pour fêter ça!
+        click_to_scroll: Faire Défiler
+        climate_catastrophe_unraveling: 'La catastrophe climatique est en train d''anéantir nos écosystèmes vitaux et de déposséder des communautés entières de par le monde, et ce n''est que le début. Depuis 21 ans (d''où COP21), les mêmes joueurs participent selon les mêmes règles truquées : « business as usual ». La seule chose qui soit sortie de ces négociations, c''est du vent et une augmentation de 63% des émissions de gaz à effet de serre. On ne peut pas laisser ce spectacle absurde continuer sans réagir.'
+        climate_justice_movement_rising: |+
+          Mais, plus rapidement encore que les températures ou le niveau de la mer, le mouvement pour la justice climatique progresse, et Paris sera la scène internationale où nous, les peuples du monde, lèverons le voile sur le jeu de miroir des fausses promesses et démantèlerons le pouvoir du Réseau.
+
+        date_and_location: 30 nov - 12 déc 2015, à Paris et à travers le monde
+        day_of_mass_disobedience: |
+          Alors que la COP21 finalise son accord désastreux, les équipes rejoignent les actions de masse.
+        disobedient_action_adventure: Le plus grand jeu d'action-aventure désobéissant du monde
+        foxes_and_mushrooms: 'Nous sommes le renard se levant à l''aube et les champignons sortant à la nuit. '
+        greet_opening: |
+          Afin d'accueilir l'ouverture de la COP21, les Jeux gomment tout signe de greenwash.
+        how_to_play: 'COMMENT JOUER:'
+        latest_reports: Compte Rendus
+        let_the_games_begin: Que les jeux commencent.
+        microbes_and_mountains: Nous sommes microbes et montagnes, poussières de roche et d'étoile.
+        next_year: "Ça ne s'arrête pas à Paris. Préparez vous à une montée en puissance l'année prochaine."
+        not_convinced: Nous ne sommes pas convaincus.
+        not_fighting_for_nature: Nous ne nous battons pas pour la nature.
+        now: DÈS MAINTENANT
+        online_paris: EN LIGNE + PARIS
+        online_paris_global: EN LIGNE + PARIS + PARTOUT
+        paris: PARIS
+        play_the_trailer: Visionner la bande annonce
+        play_wrapup_video: Visionner la video recap
+        prep: PRÉPARATION
+        register_to_plot: Inscrivez votre équipe, Formez vous à l'action créative, cartographiez le Réseau et commencez à planifier votre aventure.
+        round_1: OUVERTURE
+        round_2: CLÔTURE
+        see_the_calendar: VOIR LE CALENDRIER
+        seven_simple_moves: Les Climate Games en 7 étapes
+        speed_dating_training: Alors que le bla bla continue, la dynamique des jeux va s'accélérer avec des aventures surgissant à travers Paris et au delà.
+        steps:
+          carry_out_adventure: <span class="accent">Mettez votre plan à exécution !</span> Téléchargez <strong><a href="/fr/reports/new">ensuite anonymement vos compte-rendus</a></strong>, photos, vidéos sur la <strong><a href="/fr/reports">carte du terrain de jeu.</a></strong>
+          closing_awards_ceremony: Ne manquez pas la <strong><a href="/fr/awards">cérémonie de clôture à paillettes</a></strong>, le 13 décembre!
+          download_the_app: <span class="accent">Utilisez la carte interactive pour vous familiariser avec le terrain</span>. À tout moment, vous pouvez nourrir l'intelligence collective du jeu à la façon d'une fourmi ou d’un aigle, en suivant, photographiant, relatant anonymement et en cartographiant les émanations du Réseau sur le <strong><a href="/fr/reports">terrain de jeu mondial</a></strong>. Cela peut également consister à surveiller l'acolyte préféré du Réseau, l'Equipe Bleue, qui va se démener pour gâcher notre plaisir.
+          form_a_team: <strong><a href="/fr/teams/new">Forme une équipe</a></strong> avec tes ami-e-s et inscris la anonymement sur le site ou <strong><a href="/fr/faqs#vas-y-solo">bien vas-y en solo.</a></strong>
+          get_ready: <span class="accent">Préparez-vous à participer entre l’Ouverture </span>(30 novembre) et la Clôture des Jeux (11-12 décembre).
+          plan_an_adventure: <span class="accent">Concoctez une aventure</span> pour perturber le bon déroulement du Réseau – à Paris, là où vous habitez ou en ligne.
+          post_a_report: Chaque fois que <strong><a href="/en/reports/new">vous téléchargez un compte rendu</a></strong>, tout le jeu progresse en accumulant des points collectivement. Ton équipe peut aussi gagner des points et des prix en jouant de manière particulièrement efficace et impressionnante.
+        the_games: Les Jeux
+        the_games_story: |-
+          Décembre 2015. Avec un coeur empli de courage, un téléphone portable en main et un super plan d'action, ton équipe s'apprête à agir dans la rue et en ligne.
+          Le Sommet pour le Climat des Nations Unies, la COP21, vient juste de commencer à Paris. Et on y trouve les pires émanations du Réseau qui s'y réunissent: politiciens champions de l'austérité, multinationales des énergies fossiles, lobbyistes industriels, colporteurs de fausses solutions et greenwashers en tout genre. Soi-disant pour trouver une solution à la catastrophe climatique.
+        training: ENTRE-DEUX
+        view_awards: Les Prix
+        view_nominations_join_party: Voir les Nominés et Rejoins la Fête
+        we_are_nature_defending_itself: Nous sommes la nature qui se défend.
+        what_are_climate_games: sont le point de convergence entre action-aventure et vrai changement. N'importe qui peut prendre part à ce jeu, et transformer Paris en un gigantesque terrain d'actions pour la justice climatique. Nous avons tout à gagner – mais le temps presse.
+        why_play: Pourquoi participer?
+        your_objective: Ton objectif est de rejoindre les mouvements mondiaux déferlant pour faire pencher le jeu en faveur de la vie.
+      reports:
+        index:
+          coming_soon: Prochainement
+        maintenance: 'Le site est actuellement en maintenance. Les mise en ligne des comptes-rendus est momentanement impossible. Merci de réessayer ulterieurement. '
+        suspended:
+          message: La carte du jeu est suspendue
+      statement:
+        our_response: Lire la réponse des Climate Games après les récentes attaques.
+      teams:
+        edit:
+          complete_your_team_profile: complétez le profil de l'équipe
+          edit_team_profile: Modifier le profil de votre équipe
+          if_this_is_your: S'il s'agit de votre équipe,
+          image: Avatar
+          nature: Description de l'équipe
+          this_team_has_an_identity: Votre équipe a une crise d'identité.
+          this_team_has_one_badge: Votre équipe a obtenu un prix
+          upload_your_own: Télécharger votre avatar
+        index:
+          a_team_is_a_group: Une équipe est un groupe d’ami-e-s (récent ou de longue date) qui décide, ensemble, de concocter un plan d’action, et de mener à bien une aventure qui participe au démantèlement du Réseau. Ton équipe partage peut-être un lieu de vie, des convictions qui vous donnent envie d’agir, des tactiques que vous voudriez utiliser, certains savoir-faire que vous pourriez apporter et mettre en pratique (par exemple la danse endiablée ou l’infirmerie sur le terrain) ou encore un mélange de tout ça.
+          form_a_team: Formez une équipe de deux ou de deux cents, fonctionnez de manière non-hiérarchique et autonome, et entraidez vous à chaque étape de l’aventure. Mais rappelez vous que 10 groupes de 10 personnes sont souvent plus efficaces que 100 personnes agissant en masse (pour plus d'info sur comment travailler en équipe, n'hésitez pas à explorer ces <a href="http://agirpourlapaix.be/formations/boite-a-outils/" title="http://agirpourlapaix.be/formations/boite-a-outils/" target="_blank">ressources</a>). Nous encourageons les équipes à s’inscrire (toute inscription est faite de manière anonyme). Entrez le nom de votre équipe, un profil, un avatar, et commencez à jouer.
+          get_prepared: Preparez vous
+          join_the_games: Participer aux Jeux!
+          name: Nom
+          not_ready_yet: Pas encore prêt-e-s?
+          ready_yet: Prêt-e-s?!
+          teams: "Équipes"
+          what_is_a_team: Qu’est ce qu’une équipe ?
+        join:
+          register_a_team: Inscrire une équipe
+          you_are_joining: Vous vous joignez au plus grand Jeu d'Action Aventure Désobéissant du Monde!
+        maintenance: Le site est actuellement en maintenance. La création ou mise à jour d'équipe est momentanement impossible. Merci de réessayer ulterieurement.
+        new:
+          add_a_description: Ajouter la description de votre équipe
+          badges_are_awarded: Un prix sera remis pour le nom d'équipe le plus inventif!
+          browse_registered: Jeter un œil aux équipes déjà inscrites
+          get_prepared: Preparez vous
+          how_we_keep_you_safe:
+            point_1: Pas de sign in – vous n'utilisez que votre mot de passe d'équipe à chaque fois que vous voulez faire un compte rendu
+            point_2: 'Confidentialité – Aucun cookie, jamais '
+            point_3: Anonymat – les individus ne sont jamais liés aux équipes ou aux compte rendus d'équipes
+            point_4: Sécurité – toute communication avec le website est cryptée
+            point_5: 'Protection – tous les compte rendus sont modérés pour retirer toute information qui pourrait accidentellement aider à vous identifier '
+            title: Comment nous vous protégeons
+          not_ready_yet: Pas encore prêt-e-s?
+          register_a_team: Inscrire une équipe
+          shared_team_password: Mot de passe unique pour l'équipe
+          shared_team_password_confirmation: Confirmer le mot de passe
+          team_already_registered: Equipe déjà inscrite?
+          team_name: Nom de l'équipe
+          youll_need_this: Vous en aurez besoin pour étoffer votre profil, le modifier et partager les compte rendus des aventures de votre équipe. Faites attention à bien vous en souvenir – si vous l'oubliez, il faudra inscrire votre équipe à nouveau (avec un nouveau nom)
+        show:
+          nominated_for: Nominé pour
+          pending_reports:
+            one: Votre équipe a un compte rendu en cours d'examen
+            other: Votre équipe a %{count} compte rendus en cours d'examen
+          team_reports:
+            one: '1 compte rendu:'
+            other: "%{count} compte rendus:"
+    footer:
+      contact_us_at: Contactez-nous à
+      enter_your_email: Saisissez votre adresse mail….
+      follow_the_games: Suivez les Jeux
+      submit: S'abonner
+      subscribe: S’abonner à la newsletter
+      we_wont_spam: |
+        Nous n’inonderons pas votre boîte mail et ni ne diffuserons pas votre adresse mail. Celle-ci ne sera jamais rendue publique ni associée à une équipe particulière ou à un compte rendu d’action.
+    menu:
+      about: Accueil
+      add_report: Ajouter
+      awards: Prix
+      faqs: FAQ
+      game_map: Carte du Jeu
+      get_involved: Participer
+      get_updates: Rester informé-e
+      home: Accueil
+      join: Participer
+      latest_reports: Compte Rendus
+      map: Carte
+      player_guide: Guide du jeu
+      preperation: PRÉP
+      press: Média
+      reports: Rendus
+    meta:
+      description:
+        a_report_from: Un compte rendu d'aventure de
+    pictures:
+      default_image_url: https://www.climategames.net/assets/missing.jpg
+      link_to_original: Lien vers l'original
+    reports:
+      about: Comment ça marche?
+      add_another_report: Ajouter un autre compte rendu
+      add_link: Ajouter un lien
+      add_picture: Ajouter des photos
+      add_report: Ajouter un compte rendu
+      adventure: Compte rendu d'aventure
+      all_awards: Tous les prix
+      all_reports: Tous les compte rendus
+      all_teams: Toutes les équipes
+      at_about: "à environ"
+      at_time: le
+      attach_to_a_team: Rattacher à une équipe
+      automatically_translated: Traduction automatique.
+      awards: Prix
+      back_to_the_map: Retour à la carte
+      category: 
+      close: Fermer
+      create_report: Crée un Compte Rendu
+      create_team: Crée Equipe
+      date_time: Heure
+      description: Description
+      description_placeholder: Quelles malicieuses aventures ou événements surprenants se tiennent ici?
+      dont_despair: Ne désespérez pas si votre compte rendu n’est pas immédiatement visible sur le terrain de jeu – il se pourrait qu’il y ait un peu de délai car tous les compte rendus sont modérés pour s’assurer que l’Équipe Bleue ne nous jouent pas de mauvais tour.
+      i_agree: D'accord!
+      if_no_team_message:
+        action: créer une équipe
+        end: "."
+        start: Si tu n'en pas dejà une, tu peux
+      image: Image
+      images: 
+      intel: Compte rendu de renseignement
+      invalid_moderation_outcome: Le compte rendu n'a pas été validé
+      is_incorrect: Le mot de passe secret de votre équipe est incorrect
+      is_invalid: Les coordonnées de location de votre action n'ont pas pu être trouvées
+      join_a_team: rejoindre une équipe
+      link_count: Liens
+      links: Liens
+      links_count: 
+      links_hint: 'Connecter ce compte rendu à autant de ressources que vous le voulez:'
+      list: Liste
+      location: Lieu
+      longitude_latitude: Longitude / Latitude
+      map: Carte
+      map_intro: |-
+        <p>Bienvenue sur le terrain de jeu. Vous pouvez maintenant nourrir l’intelligence collective des Jeux en reportant anonymement les émanations du Réseaux sur la carte, par le biais de compte rendus (vous pouvez ajouter des photos, du texte, etc). Pendant les Jeux (du 30 novembre au 12 décembre), vous pourrez ajouter les aventures de votre équipe. Enfin et surtout, si des équipes voient l’Équipe Bleue tenter de gâcher notre plaisir, alors aidez les autres équipes en téléchargeant un compte rendu révélant leur position.</p>
+
+        <p>Et ne désespérez pas si votre compte rendu n’est pas immédiatement visible sur le terrain de jeu – il se pourrait qu’il y ait un peu de délai car tous les compte rendus sont modérés pour s’assurer que l’Équipe Bleue ne nous joue pas de mauvais tours.</p>
+      more_info: Plus d'infos...
+      more_reports_from_this_team:
+        one: Voir un autre compte rendu de cette équipe
+        other: Voir %{count} autres comptes rendus de cette équipe
+      new_report: Nouveau Compte rendu
+      no_reports_found: Aucun compte rendu trouvé.
+      no_results: Aucun résultat ne correspond à vos critères de sélection.
+      no_team: Pas d'équipe
+      none: Aucun
+      optional: "(facultatif)"
+      or: ou
+      password: Mot de passe
+      pictures: Photos
+      please_select_the_awards: Sélectionner jusqu'à 3 prix
+      remove: Retirer
+      report: Compte-rendu
+      reports: Compte rendus
+      search_for_place: Sélectionner sur la carte ou écrire ici
+      select_a_team: Sélectionner une équipe
+      submit_report: Envoyez votre compte rendu
+      team: "Équipe"
+      thanks: Merci d'avoir joué!
+      thanks_moderation_message: |-
+        <p>Votre compte rendu a bien été reçu et va être vérifié avant d'être publié.</p>
+        <p>Il se pourrait donc qu'il y ait un peu de délai avant qu'il apparaisse sur la carte. Merci de votre compréhension</p>
+      title: Titre
+      url: URL
+      view_larger_map: Aggrandir la carte
+    site_description: Les Climate Games sont un jeu d'action aventure désobéissant auquel chacun-e peut participer pendant le sommet du climat COP21 à Paris du 30 novembre au 12 décembre. Jouez dans les rues de Paris, en ligne et au delà. Nous sommes la Nature qui se défend!
+    subscribe_for_update: M'inscrire à la newsletter
+    team:
+      one: "équipe"
+      other: "équipes"
+    teams:
+      secret_word_incorrect: Le mot de passe secret de votre équipe est incorrect
+    the_climate_games: Les Climate Games
+    tribe:
+      one: tribu
+      other: tribus
+    tweets_by: Tweets de
+    we_are_nature: Nous sommes la <strong>nature</strong> qui se défend
+  date:
+    abbr_day_names:
+    - dim
+    - lun
+    - mar
+    - mer
+    - jeu
+    - ven
+    - sam
+    abbr_month_names:
+    - 
+    - jan.
+    - fév.
+    - mar.
+    - avr.
+    - mai
+    - juin
+    - juil.
+    - août
+    - sept.
+    - oct.
+    - nov.
+    - déc.
+    day_names:
+    - dimanche
+    - lundi
+    - mardi
+    - mercredi
+    - jeudi
+    - vendredi
+    - samedi
+    formats:
+      default: "%d/%m/%Y"
+      long: "%e %B %Y"
+      short: "%e %b"
+    month_names:
+    - 
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+    order:
+    - :day
+    - :month
+    - :year
+  datepicker:
+    dformat: 
+    pformat: 
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ une heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ un mois
+        other: environ %{count} mois
+      about_x_years:
+        one: environ un an
+        other: environ %{count} ans
+      almost_x_years:
+        one: presqu'un an
+        other: presque %{count} ans
+      half_a_minute: une demi-minute
+      less_than_x_minutes:
+        one: moins d'une minute
+        other: moins de %{count} minutes
+        zero: moins d'une minute
+      less_than_x_seconds:
+        one: moins d'une seconde
+        other: moins de %{count} secondes
+        zero: moins d'une seconde
+      over_x_years:
+        one: plus d'un an
+        other: plus de %{count} ans
+      x_days:
+        one: 1 jour
+        other: "%{count} jours"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
+      x_seconds:
+        one: 1 seconde
+        other: "%{count} secondes"
+    prompts:
+      day: Jour
+      hour: Heure
+      minute: Minute
+      month: Mois
+      second: Seconde
+      year: Année
+  dayViewHeaderFormat: 
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: doit être accepté(e)
+      blank: doit être rempli(e)
+      confirmation: ne concorde pas avec %{attribute}
+      empty: doit être rempli(e)
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: n'est pas valide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      other_than: doit être différent de %{count}
+      present: doit être vide
+      record_invalid: 'La validation a échoué : %{errors}'
+      restrict_dependent_destroy: 
+      taken: n'est pas disponible
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: 'Impossible d''enregistrer ce(tte) %{model} : 1 erreur'
+        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+  helpers:
+    label:
+      page:
+        title: 
+      refinery_user:
+        login: 
+        password: 
+        remember_me: 
+      user:
+        email: 
+        full_name: 
+        password: 
+        password_confirmation: 
+        username: 
+    select:
+      prompt: Veuillez sélectionner
+    submit:
+      create: Créer une %{model}
+      submit: Enregistrer ce(tte) %{model}
+      update: Modifier cette %{model}
+  members:
+    rear_of_id: 
+  moderation:
+    adventure_reports_approved: 
+    current_moderator_alert: "%{username} is currently moderating this report"
+    dashboard: Tableau de bord
+    edit: Modifier
+    edit_moderator: Modefier le modérateur
+    edit_report: Modifier le compte rendu
+    form_invalid: Le formulaire n'a pas été validé
+    game_states: 
+    intel_reports_approved: 
+    invalid_category: 'Catégorie non valide: %{category}'
+    logged_in_as: Connecté en tant que
+    moderator:
+      enabled: Validé
+      password: Mot de passe
+      password_confirmation: Confirmation de votre mot de passe
+      super_cape: Super cape
+      username: Nom d'utilisateur
+    moderators: Modérateurs-trices
+    moderators_enabled: Modérateurs-trices habilité-es
+    moderators_super_cape: Modérateurs-trices à cape
+    need_enabling: Votre statut de modérateur-trice doit être activé
+    need_logged_in: Connectez-vous afin d'accéder à ces fonctionnalités
+    please_wait_moderation_enabled: Chèr-e modérateur-trice, merci d'attendre l'activation de votre statut par l'équipe des Climate Games.
+    report:
+      current_moderator: Modérateur-trice
+      delete_image: Supprimer l'image
+      internal_memo: Mémo interne
+      moderation_outcome: Résultat de modération
+      team: "Équipe"
+      title: Titre
+    report_awards: 
+    reports: Compte rendus
+    reports_all: Tous les compte rendus
+    reports_approved: Compte rendus approuvés
+    reports_pending: Compte rendus en cours d'examen
+    reports_rejected: Compte rendus rejetés
+    session:
+      log_in: Se connecter
+      log_out: Se déconnecter
+      logged_in: Connecté!
+      logged_out: Deconnecté!
+      login_fail: Nom d'utilisateur ou mot de passe incorrect
+    sign_up: S'inscrire
+    signed_up_success: Inscription enregistré avec succès
+    successfully_updated_moderator: Modérateur-trice %{username} mis à jour avec succès
+    successfully_updated_report: Compte rendu mis à jour avec succès
+    teams: "Équipes"
+    teams_with_reports: "Équipes avec compte rendus"
+    time: 
+    xno: Non
+    xyes: Oui
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: milliard
+          million: million
+          quadrillion: million de milliards
+          thousand: millier
+          trillion: billion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: octet
+            other: octets
+          gb: Go
+          kb: ko
+          mb: Mo
+          tb: To
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: " "
+  refinery:
+    admin:
+      delete:
+        refinery:
+          admin:
+            resources:
+              resource:
+                message: 
+      menu:
+        reorder_done: 
+      pages:
+        form_advanced_options:
+          password_protected_description: Need insider password to see this page?
+          password_protected_help: When checked the user needs to know the login details only Climate Game creators know
+          password_protected_title: Password protect
+    core:
+      config:
+        site_name: Climate Games
+  simple_form:
+    hints:
+      defaults:
+        awards_html: 
+        base_locale_html: 
+        category_html: 
+        date_time_html: 
+        description_html: 
+        id_rear_image_html: 
+        image_html: 
+        internal_memo_html: 
+        latitude_html: 
+        location_html: 
+        longitude_html: 
+        moderation_outcome_html: 
+        name_html: 
+        nature_html: 
+        password_confirmation_html: 
+        password_html: 
+        team_html: 
+        title_html: 
+        url_html: 
+        username_html: 
+    labels:
+      defaults:
+        awards_html: 
+        category_html: 
+        date_time_html: 
+        description_html: 
+        image_html: 
+        latitude_html: 
+        location_html: 
+        longitude_html: 
+        name_html: 
+        password_confirmation_html: 
+        password_html: 
+        team_html: 
+        title_html: 
+    placeholders:
+      defaults:
+        base_locale_html: 
+        category_html: 
+        date_time_html: 
+        description_html: 
+        internal_memo_html: 
+        latitude_html: 
+        location_html: 
+        longitude_html: 
+        name_html: 
+        nature_html: 
+        password_confirmation_html: 
+        password_html: 
+        title_html: 
+        url_html: 
+        username_html: 
+    required:
+      html: 
+  support:
+    array:
+      last_word_connector: " et "
+      two_words_connector: " et "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%d %B %Y %Hh %Mmin %Ss"
+      long: "%A %d %B %Y %Hh%M"
+      short: "%d %b %Hh%M"
+    pm: pm
+  timepicker:
+    dformat: 
+    pformat: 

@@ -1,0 +1,39 @@
+.avatar {
+  margin: 15px auto;
+}
+
+.teams {
+  margin-top: 25px;
+
+  .team {
+    border-top: 1px solid #d1d1d1;
+    padding-top: 25px;
+    text-align: center;
+
+    .image {
+      margin: 0 auto;
+      max-height: 200px;
+    }
+  }
+
+}
+
+.teams_new {
+  h1 {
+    font-size: 2.5em;
+  }
+}
+
+.teams_show {
+  .no-side-padding {
+    .avatar {
+      margin-top: 0;
+    }
+  }
+
+  .report_avatar {
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}

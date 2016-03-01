@@ -1,0 +1,16 @@
+<table class='game-state-data index-table'>
+  <tr>
+    <th><%= t('moderation.time') %></th>
+    <%- @attributes.each do |attr| %>
+      <th><%= attr %></th>
+    <%- end %>
+  </tr>
+  <%- @game_states.each do |game_state| %>
+    <tr>
+      <td><%= game_state.created_at %></td>
+      <%- @attributes.each do |attr| %>
+        <td><%= game_state.send(attr) %></td>
+      <%- end %>
+    </tr>
+  <%- end %>
+</table>

@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div id="statement">
+    <%= link_to "> #{t("cg.copy.statement.our_response")}", "/#{::I18n.locale}/response-to-the-recent-attacks" %>
+  </div>
+
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to '#ClimateGames'.html_safe, "/#{::I18n.locale}/home", class: 'navbar-brand' %>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="visible-xs-inline-block">
+          <%= link_to t("cg.menu.home"), "/#{::I18n.locale}/" %>
+        </li>
+        <li class="visible-sm-inline-block">
+          <%= link_to t("cg.menu.map"), "/#{::I18n.locale}" + main_app.reports_path %>
+        </li>
+        <li class="hidden-sm">
+          <%= link_to t("cg.menu.game_map"), "/#{::I18n.locale}" + main_app.reports_path %>
+        </li>
+        <li class="visible-sm-inline-block">
+          <%= link_to t("cg.menu.reports"), "/#{::I18n.locale}" + main_app.reports_path + "#list-tab" %>
+        </li>
+        <li class="hidden-sm">
+          <%= link_to t("cg.menu.latest_reports"), "/#{::I18n.locale}" + main_app.reports_path + "#list-tab", id: 'latest_report_navigation_item' %>
+        </li>
+        <li>
+          <%= link_to t("cg.team", count:100).mb_chars.capitalize, "/#{::I18n.locale}" + main_app.teams_path %>
+        </li>
+        <li>
+          <%= link_to t("cg.menu.awards"), "/#{::I18n.locale}/awards" %>
+        </li>
+        <li>
+          <%= link_to t("cg.menu.press"), "/#{::I18n.locale}/press" %>
+        </li>
+        <li>
+          <%= link_to t("cg.menu.faqs"), "/#{::I18n.locale}/faqs" %>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <%= render 'layouts/language_switcher' %>
+        <li>
+          <%= link_to "> #{t("cg.menu.join")}", "/#{::I18n.locale}/teams/new" %>
+        </li>
+        <li>
+          <%= link_to "> #{t("cg.menu.add_report")}", "/#{::I18n.locale}/reports/new" %>
+        </li>
+        <!-- <li>
+          <%= link_to t("cg.menu.get_updates"), "/#{::I18n.locale}/get_updates" %>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>

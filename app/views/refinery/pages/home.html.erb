@@ -1,0 +1,253 @@
+<%
+
+games_ended_page = Refinery::Page.find_by_path("/games-ended")
+if games_ended_page
+  games_ended_body = games_ended_page.parts.find_by(title: "Body").body
+else
+  games_ended_body = ""
+end
+
+%>
+
+<div class="modal fade" id="trailer-modal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">&nbsp;</h4>
+    </div>
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="embed-responsive embed-responsive-16by9" id="player">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="wrapup-modal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">&nbsp;</h4>
+    </div>
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="embed-responsive embed-responsive-16by9" id="wrapup-player">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide parallax-window" data-parallax="scroll" data-image-src="<%= image_path('home/swarm.jpg') %>">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1" id="introduction">
+      <h1><%= t "cg.climate_games_name" %></h1>
+      <h2 class="margin-top-10"><%= t "cg.copy.home.we_are_nature_defending_itself" %></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-11 col-xs-offset-1">
+      <ul class="list-inline">
+        <li class="button-icon" id="click-to-scroll">
+          <a href="#the-games" class="smooth-scroll"><%= t "cg.copy.home.click_to_scroll" %></a></li>
+        <li class="button-icon" id="play-the-trailer">
+          <a href="#" id="launch-trailer"><%= t "cg.copy.home.play_the_trailer" %></a></li>
+        <li class="button-icon" id="play-wrapup-video">
+          <a href="#" id="launch-wrapup-video"><%= t "cg.copy.home.play_wrapup_video" %></a></li>
+        <li class="button-icon">
+          <a href="<%= "/#{::I18n.locale}/awards" %>">
+            <i class="fa fa-trophy"></i>
+            <%= t "cg.copy.home.view_awards" %>
+            <!-- <%= t "cg.copy.home.awards_nominations" %> -->
+          </a></li>
+        <!--
+        <li class="button-icon">
+          <a href="<%= "/#{::I18n.locale}" + main_app.reports_path + "#list-tab" %>">
+            <i class="fa fa-clock-o"></i>
+            <%= t "cg.copy.home.latest_reports" %>
+          </a></li>
+        <li class="button-icon">
+          <a href="<%= "/#{::I18n.locale}/reports/new" %>">
+            <i class="fa fa-send"></i>
+            <%= t "cg.copy.home.add_report" %>
+          </a></li>
+        -->
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="white-background">
+  <div class="content" id="the-games">
+
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-1" id="games-ended">
+        <%= games_ended_body.html_safe %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-1">
+        <h1><%= t "cg.copy.home.the_games" %></h1>
+        <p><strong><%= t "cg.copy.home.disobedient_action_adventure" %></strong></p>
+        <p class="margin-top-20"><%= t "cg.copy.home.the_games_story" %></p>
+
+        <p class="accent"><%= t "cg.copy.home.not_convinced" %></p>
+        <p><%= t "cg.copy.home.your_objective" %></p>
+
+        <p><span class="accent"><%= t "cg.the_climate_games" %></span> <%= t "cg.copy.home.what_are_climate_games" %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content" id="why-play">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-1">
+        <h1><%= t "cg.copy.home.why_play" %></h1>
+        <p><%= t "cg.copy.home.climate_catastrophe_unraveling" %></p>
+
+        <p><%= t "cg.copy.home.climate_justice_movement_rising" %></p>
+
+        <p>
+          <%= t "cg.copy.home.foxes_and_mushrooms" %></br>
+          <%= t "cg.copy.home.microbes_and_mountains" %>
+        </p>
+
+        <h3><%= t "cg.copy.home.not_fighting_for_nature" %></h3>
+        <h3><%= t "cg.copy.home.we_are_nature_defending_itself" %></h3>
+
+        <p class="margin-top-35"><strong class="accent"><%= link_to t("cg.copy.home.let_the_games_begin"), "/#{::I18n.locale}/teams/new" %></strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide parallax-window" data-parallax="scroll" data-image-src="<%= image_path('home/cellphone-protest.jpg') %>">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-1">
+      <h1><%= t "cg.copy.home.how_to_play" %></h1>
+      <h2><%= t "cg.copy.home.seven_simple_moves" %></h2>
+    </div>
+  </div>
+</div>
+
+<div id="how-to-play">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-1">
+      <ul class="list-unstyled">
+        <li>
+          <span class="number pull-left">1</span>
+          <p class="point">
+            <%= t("cg.copy.home.steps.form_a_team").html_safe %>
+          </p>
+        </li>
+
+        <li>
+          <span class="number pull-left">2</span>
+          <p class="point">
+            <%= t("cg.copy.home.steps.plan_an_adventure").html_safe %>
+          </p>
+        </li>
+
+        <li>
+          <span class="number pull-left">3</span>
+          <p class="point">
+            <%= t("cg.copy.home.steps.download_the_app").html_safe %>
+          </p>
+        </li>
+
+        <li>
+          <span class="number pull-left">4</span>
+          <p class="point">
+            <%= t("cg.copy.home.steps.get_ready").html_safe %>
+          </p>
+        </li>
+
+        <li>
+          <span class="number pull-left">5</span>
+          <p class="point">
+            <%= t("cg.copy.home.steps.carry_out_adventure").html_safe %>
+          </p>
+        </li>
+
+        <li>
+          <span class="number pull-left">6</span>
+          <p class="point">
+            <%= t("cg.copy.home.steps.post_a_report").html_safe %>
+          </p>
+        </li>
+
+        <li>
+          <span class="number pull-left">7</span>
+          <p class="point">
+            <%= t("cg.copy.home.steps.closing_awards_ceremony").html_safe %>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide parallax-window" data-parallax="scroll" data-image-src="<%= image_path('home/microscope.jpg') %>">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-1">
+      <h1><%= t "cg.climate_games_name" %></h1>
+      <h2><%= t "cg.copy.home.calendar" %></h2>
+    </div>
+  </div>
+</div>
+
+<div id="calendar">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="row">
+        <div class="col-md-4 event border-right-lg">
+          <p><strong><%= t "cg.copy.home.now" %></strong></p>
+          <h1><%= link_to(t("cg.copy.home.prep"), "/#{::I18n.locale}/preparation") %></h1>
+          <p><strong><%= t "cg.copy.home.online_paris_global" %></strong></p>
+          <p class="margin-top-15"><%= t("cg.copy.home.register_to_plot").html_safe %></p>
+        </div>
+
+        <div class="col-md-4 event border-right-lg">
+          <p><strong><%= t "cg.copy.home.30_nov_2015" %></strong></p>
+          <h1><%= link_to(t("cg.copy.home.round_1"), "/#{::I18n.locale}/opening-round") %></h1>
+          <p><strong><%= t "cg.copy.home.online_paris_global" %></strong></p>
+          <p class="margin-top-15"><%= t "cg.copy.home.greet_opening" %></p>
+        </div>
+
+        <div class="col-md-4 event">
+          <p><strong><%= t "cg.copy.home.5_6_dec_2015" %></strong></p>
+          <h1><%= t("cg.copy.home.training") %></h1>
+          <p><strong><%= t "cg.copy.home.online_paris_global" %></strong></p>
+          <p class="margin-top-15"><%= t "cg.copy.home.speed_dating_training" %></p>
+        </div>
+      </div>
+
+      <div class="row events-row">
+        <div class="col-md-4 event border-right-lg">
+          <p><strong><%= t "cg.copy.home.11_12_dec_2015" %></strong></p>
+          <h1><%= link_to(t("cg.copy.home.round_2"), "/#{::I18n.locale}/closing-round") %></h1>
+          <p><strong><%= t "cg.copy.home.online_paris_global" %></strong></p>
+          <p class="margin-top-15"><%= t "cg.copy.home.day_of_mass_disobedience" %></p>
+        </div>
+
+        <div class="col-md-4 event border-right-lg">
+          <p><strong><%= t "cg.copy.home.13_dec_2015" %></strong></p>
+          <h1><%= link_to(t("cg.copy.home.awards"), "/#{::I18n.locale}/awards") %></h1>
+
+          <p><strong><%= t "cg.copy.home.online_paris" %></strong></p>
+          <p class="margin-top-15"><%= t "cg.copy.home.ceremony_celebration" %></p>
+        </div>
+
+        <div class="col-md-4 event last">
+          <p><strong><%= t "cg.copy.home.april_2016" %></strong></p>
+          <h1><%= t "cg.copy.home.and_beyond" %></h1>
+          <p><strong><%= t "cg.copy.home.online_paris_global" %></strong></p>
+          <p class="margin-top-15"><%= t "cg.copy.home.next_year" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

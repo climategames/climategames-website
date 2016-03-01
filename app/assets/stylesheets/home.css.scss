@@ -1,0 +1,185 @@
+#home-page {
+  #introduction h3 a {
+    color:#fff;
+
+    &:hover {
+      color:#fff;
+    }
+  }
+
+  .home-awards {
+    width:100%;
+    margin-top: 78px;
+  }
+
+  #the-games, #why-play {
+    background-size: cover;
+    min-height: 609px;
+  }
+
+  #the-games {
+    background: image-url('home/mesh-top.png') #fff center top no-repeat;
+
+    &>div>div {
+      background: rgba(255,255,255,0.6);
+    }
+  }
+
+  #why-play {
+    background: image-url('home/mesh-bottom.png') #fff center bottom no-repeat;
+    padding-bottom: 45px;
+
+    &>div>div {
+      background: rgba(255,255,255,0.6);
+      #games-ended {
+        background-color: rgba(192,255,0,0.6);
+      }
+    }
+
+    h3 {
+      color: #092936;
+      font-family: 'Museo-700Italic';
+      font-size: 2.2em;
+      margin-top: 10px;
+      text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+
+      &:first-of-type {
+        margin-top: 35px;
+      }
+    }
+  }
+
+  #how-to-play {
+    background: #fff;
+    min-height: 585px;
+    padding-top: 100px;
+    padding-bottom: 90px;
+
+    .list-unstyled {
+      li {
+        display: inline-block;
+        margin-bottom: 25px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .number {
+      background: #ff0099;
+      color: #fff;
+      display: inline-block;
+      font-family: 'MuseoSansCond-500';
+      font-weight: 500;
+      font-size: 2.5em;
+      height: 48px;
+      padding-top: 2px;
+      text-align: center;
+      width: 50px;
+      border-radius: 25px;
+    }
+
+    .point {
+      padding: 5px 0 0 65px;
+    }
+  }
+
+  #calendar {
+    background: #fff;
+    min-height: 585px;
+    padding-top: 100px;
+    padding-bottom: 90px;
+
+    .event {
+      p {
+        color: #092936;
+        font-family: 'ProximaNova-Regular';
+        font-size: 1.2em;
+        margin: 0;
+
+        strong {
+          font-family: 'ProximaNova-Bold';
+        }
+      }
+
+      h1 {
+        color: #ff0099;
+        font-family: 'Museo-700';
+        font-size: 2.5em;
+        a {
+          color: #ff0099;
+          &:hover {
+            color: #ccff00 !important;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: 991px) {
+    #calendar {
+      .event {
+        border-bottom: 1px solid #092936;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+
+        &.last {
+          border-bottom: 0;
+          margin-bottom: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  @media(min-width: 992px) {
+    #calendar {
+      .events-row {
+        margin-top: 25px;
+        padding-top: 25px;
+        border-top: 1px solid #092936;
+      }
+
+      .border-right-lg {
+        border-right: 1px solid #092936;
+      }
+
+      .event {
+        min-height: 193px;
+      }
+    }
+  }
+}
+
+#trailer-modal, #wrapup-modal {
+  .modal-header {
+    background: #000;
+    border-bottom: 0;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding-bottom: 0;
+
+    .close {
+      color: #fff;
+    }
+  }
+
+  .modal-content {
+    background: #000;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    .jw-tab-focus:focus {
+      outline: none;
+    }
+  }
+}
+
+#games-ended {
+  background-color: rgba(192,255,0,0.6) !important;
+  padding-top: 15px;
+}

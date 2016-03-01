@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+APP_PATH = File.expand_path('../../config/application', __FILE__)
+require_relative '../config/boot'
+require_relative '../config/environment'
+
+class ImageArchiver
+  attr_accessor :dir, :reports
+
+  def initialize
+    @dir = Rails.root.join("tmp", "cg-images-#{Time.current.to_s(:number)}")
+    FileUtils.mkdir_p @dir
+
+    @teams_dir = @dir.join("teams")
+    FileUtils.mkdir_p @teams_dir
+
+    @reports_dir = @dir.join("reports")
+    FileUtils.mkdir_p @reports_dir
+
+    @reports = Report.approved.adventure
+  end
+
+  def store_to_directory
+    reports.each { |r| store_report(r) }
+  end
+
+  def store_team(team, teamname)
+    return unless team.image?
+    ext = nil
+    begin
+      ext = File.extname(team.image_file_name)
+    rescue
+      ext = ".gif"
+    end
+    filename = "#{teamname}-#{team.id}-teamimage#{ext}"
+    orig = team.image.path(:original)
+    puts "#{orig} -> #{filename}"
+    `cp "#{orig}" "#{@teams_dir}/#{filename}"`
+  end
+
+  def store_report(report)
+    team = report.team
+    teamname = team.try(:name) || "_no_team"
+    if team
+      store_team(team, teamname)
+    end
+
+    report.pictures.each_with_index.map do |picture, i|
+      ext = nil
+      begin
+        ext = File.extname(picture.image_file_name)
+      rescue
+        ext = ".gif"
+      end
+      filename = "#{teamname}-#{report.id}-pic#{i}#{ext}"
+      orig = picture.image.path(:original)
+      puts "#{orig} -> #{filename}"
+      `cp "#{orig}" "#{@reports_dir}/#{filename}"`
+    end
+  end
+end
+
+ImageArchiver.new.store_to_directory

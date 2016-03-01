@@ -1,0 +1,88 @@
+<%= f.error_notification %>
+
+<% if !try(:current_moderator) %>
+  <p>
+    <%= t('cg.reports.if_no_team_message.start') %>
+    <%= link_to t('cg.reports.if_no_team_message.action'), new_team_path(locale: I18n.locale) %>
+    <%= t('cg.reports.if_no_team_message.end') %>
+  </p>
+<% end %>
+
+<%= f.input :category, collection: Report::CATEGORIES, as: :radio_buttons, label: false  %>
+<%= f.input :title, label: t('cg.reports.title'), placeholder: t('cg.reports.title') %>
+<div class="location-container">
+  <label><%= t('cg.reports.location') %></label>
+  <div class="input-group location-group">
+    <%= f.input :location, label: false, placeholder: t('cg.reports.search_for_place') %>
+    <span class="input-group-addon">
+        <i class="glyphicon glyphicon-search"></i>
+    </span>
+  </div>
+  <div class="form-group">
+    <div id="map" class="new"></div>
+  </div>
+</div>
+<%= f.input :latitude, as: :hidden %>
+<%= f.input :longitude, as: :hidden %>
+
+<%= f.input :description, input_html: { rows: 6 }, label: t('cg.reports.description'), placeholder: t('cg.reports.description_placeholder') %>
+
+<% if try(:current_moderator) %>
+  <%= f.association :team, collection: @teams, prompt: t('cg.reports.no_team'), label: t('activerecord.attributes.report.team') %>
+  <%= f.association :awards, as: :check_boxes, label: false %>
+<% else %>
+  <label><%= t('cg.reports.select_a_team') %> <small><%= t('cg.reports.optional') %></small></label>
+  <% if !@report.team_id && !@report.award_ids.any? %>
+    <div id="claim-team-points" class="form-group">
+      <%= link_to "+ #{t('cg.reports.attach_to_a_team')}", '#', class: 'btn btn-default' %>
+    </div>
+  <% end %>
+
+  <div id="claim-fields" <%= ' class="show"'.html_safe if @report.team_id || @report.award_ids.any? %>>
+    <%= f.association :team, collection: Team.alphabetical, prompt: t('cg.reports.no_team'), label: false %>
+    <%= f.input :password, label: t('cg.reports.password') %>
+
+    <label><%= t('cg.reports.awards') %> <small><%= t('cg.reports.optional') %></small></label>
+    <br/>
+    <small class="margin-bottom-15">
+      <%= t('cg.reports.please_select_the_awards') %>
+    </small>
+
+    <%= f.association :awards, as: :check_boxes, :label => false, :label_method => lambda { |award| "#{award.name} <abbr rel='tooltip' title='#{award.name}: #{award.description}'><i class='fa fa-question'></i></abbr>".html_safe } %>
+  </div>
+<% end %>
+
+<label><%= t('cg.reports.pictures') %> <small><%= t('cg.reports.optional') %></small></label>
+<div id="pictures" class="form-group">
+  <%= f.simple_fields_for :pictures do |picture| %>
+    <%= render 'reports/picture_fields', :f => picture %>
+  <% end %>
+  <div class="pictures">
+    <%= link_to_add_association "+ #{t('cg.reports.add_picture')}", f, :pictures, partial: 'reports/picture_fields', class: 'btn btn-default' %>
+  </div>
+</div>
+
+<label><%= t('cg.reports.links') %> <small><%= t('cg.reports.optional') %></small></label>
+<div id="links" class="form-group">
+  <%= f.simple_fields_for :links do |link| %>
+    <%= render 'reports/link_fields', :f => link %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association "+ #{t('cg.reports.add_link')}", f, :links, class: 'btn btn-default' %>
+  </div>
+</div>
+
+<%= f.input :date_time, label: t('cg.reports.date_time') %>
+
+<% if try(:current_moderator) %>
+  <%= f.input :moderation_outcome, label: t("activerecord.attributes.report.moderation_outcome"), as: :radio_buttons, collection: Report.moderation_outcome_options %>
+  <%= f.input :internal_memo, input_html: { rows: 4 }, label: t("activerecord.attributes.report.internal_memo")  %>
+<% else %>
+  <p class="margin-top-15">
+    <%= t('cg.reports.dont_despair') %>
+  </p>
+<% end %>
+
+<div class="margin-top-20 margin-bottom-20">
+  <%= f.button :submit, t('cg.reports.submit_report'), class: 'btn btn-magenta btn-send-report' %>
+</div>

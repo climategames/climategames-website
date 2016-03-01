@@ -1,0 +1,289 @@
+// Special styling for map page for full screen experience - header not fixed + footer removed
+body.map {
+  .content {
+    padding-bottom: 0;
+  }
+
+  .container {
+    width: auto;
+  }
+
+  footer {
+    display: none;
+  }
+
+  #map {
+    &.index {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .container > .relative {
+    background: white;
+    z-index: 1001;
+  }
+
+  .leaflet-top {
+    top: 75px;
+  }
+
+  @media(max-width:767px) {
+    .filters {
+      display: none;
+    }
+
+    .leaflet-bottom {
+      bottom: 70px;
+    }
+
+    #map.index {
+      margin-top: 70px;
+      margin-bottom: -70px;
+    }
+  }
+
+  @media(min-width:768px) {
+    .filters .col-md-4 {
+      float: left;
+      width: 33%;
+    }
+
+    .leaflet-bottom {
+      bottom: 130px;
+    }
+
+    #map.index {
+      margin-top: 130px;
+      margin-bottom: -130px;
+    }
+  }
+
+}
+
+
+// https://gist.github.com/daz/2168334
+.ui-autocomplete {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  _width: 160px;
+  padding: 4px 0;
+  margin: 2px 0 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+
+  .ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+
+    &.ui-state-hover, &.ui-state-active {
+      color: #ffffff;
+      text-decoration: none;
+      background-color: #0088cc;
+      border-radius: 0px;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      background-image: none;
+    }
+  }
+}
+
+#claim-fields {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+.tab-content {
+  height: 100%;
+}
+
+.leaflet-control-locate-wrap {
+  padding: 0 !important;
+  box-shadow: rgba(0, 0, 0, 0.65098) 0px 1px 5px 0px;
+
+  .leaflet-control-locate {
+    background-color: #fff;
+    height: 26px;
+    width: 26px;
+
+    &:hover {
+      background-color: #f4f4f4;
+    }
+  }
+}
+
+.thumb {
+  height: 60px;
+  width: 60px;
+}
+
+// Send a Report Form
+.new_report, .edit_report {
+  // On mobile, hide header and footer
+  @media(max-width:767px) {
+    header, footer {
+      display: none;
+    }
+
+    .navbar-fixed-top {
+      position: relative;
+    }
+
+    .content {
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
+  }
+
+  #map {
+    margin: 0 60px 0 0;
+    width: 100%;
+
+    a {
+      color: #092936;
+    }
+
+    &.new, &.edit {
+      height: 350px;
+    }
+
+    &.edit {
+      width: 800px;
+    }
+
+  }
+
+  abbr[title=required] {
+    display: none;
+  }
+
+  input[type=file] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  label > small {
+    font-weight: normal;
+  }
+
+  @media(max-width:767px) {
+    h1 {
+      font-size: 1.5em;
+    }
+
+    #map {
+      &.new, &.edit {
+        height: 250px;
+      }
+
+      &.edit {
+        width: 800px;
+      }
+    }
+
+    form .report_category {
+      .radio {
+        display: inline-block;
+        margin: 0;
+        margin-right: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+
+        label {
+          padding: 10px;
+          padding-left: 30px;
+        }
+      }
+    }
+
+    .report_date_time .form-inline .form-control {
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+      padding: 6px 6px;
+    }
+  }
+
+  .location-container {
+    margin-right:50px;
+
+    .location-group {
+      div.report_location {
+        margin-bottom: 0;
+      }
+
+      input#report_location {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .input-group-addon {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  .links-hint {
+    margin-bottom: 10px !important;
+  }
+}
+
+// Show report
+body.reports_show {
+  #map {
+    width:100%;
+    height:200px;
+  }
+}
+
+
+.leaflet-popup-tip-container {
+  margin-bottom: 45px;
+}
+
+#about_button {
+  background: url(image-path('reports/help.png')) no-repeat;
+  background-position: 10px 7px;
+  height: 42px;
+  width: 46px;
+}
+
+#moderation-container .report_longitude p.help-block {
+  display: none;
+}

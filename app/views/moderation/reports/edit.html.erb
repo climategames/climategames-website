@@ -1,0 +1,5 @@
+<h1><%= t('moderation.edit_report') %>: <%= @report.title %></h1>
+
+<%= simple_form_for @report, url: moderation_report_path(@report, locale: locale.to_s) do |f| %>
+  <%= render partial: 'reports/form', locals: { f: f } %>
+<% end %>

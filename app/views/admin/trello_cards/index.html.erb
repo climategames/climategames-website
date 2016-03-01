@@ -1,0 +1,27 @@
+<style>
+  table.trello {
+    border-collapse: collapse;
+  }
+
+  table.trello td, table.trello th {
+    padding: 0.1em 1em 0.1em 1em;
+    border: solid 1px #999;
+  }
+</style>
+
+<%= link_to("Trello board: #{@board.name}", @board.url) %>
+<div>Current highest ticket number: PP-<%= @trello_overview.highest_ticket_number %>
+<table class="trello">
+  <tr>
+    <th>Number</th>
+    <th>Name</th>
+    <th>Column</th>
+  </tr>
+  <%- @cards.each do |card| %>
+    <tr>
+      <td style="text-align: right"><%= card.ticket_number %></td>
+      <td class="trello-name"><%= link_to(card.name, card.url) %></td>
+      <td class="trello-column-name"><%= @list_lookup[card.list_id].name %></td>
+    </tr>
+  <%- end %>
+</table>

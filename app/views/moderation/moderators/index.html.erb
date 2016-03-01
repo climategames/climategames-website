@@ -1,0 +1,10 @@
+<h1><%= t('moderation.moderators') %></h1>
+
+<table class="index-table moderators">
+  <tr>
+    <th><%= t('moderation.moderator.username') %></th>
+    <th><%= t('moderation.moderator.enabled') %></th>
+    <th><%= t('moderation.moderator.super_cape') %></th>
+  </tr>
+  <%= render partial: "moderator", collection: @moderators %>
+</table>

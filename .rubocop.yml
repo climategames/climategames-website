@@ -1,0 +1,33 @@
+# This is the configuration used to check the rubocop source code.
+
+Style/Encoding:
+  Enabled: false
+
+AllCops:
+  RunRailsCops: true
+  Exclude:
+  - bin/**/*
+  - vendor/**/*
+  - db/migrate/*
+  - db/schema.rb
+  - db/seeds.rb
+  - config/**/*
+  - Gemfile
+  - node_modules/**/*
+  - tmp/**/*
+  - .bundle/**/*
+
+Documentation:
+  Enabled: false
+
+StringLiterals:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 140
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/AndOr:
+  Enabled: false

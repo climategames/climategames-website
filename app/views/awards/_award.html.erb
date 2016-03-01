@@ -1,0 +1,39 @@
+<% if award.reports.try(:any?) %>
+  <h1 class="award-title award-title-<%= index %>"><%= award.name %></h1>
+  <p class="margin-top-20"><%= award.description %></p>
+
+  <div class="scroll-horizontal awards">
+    <div class="no-line-breaks width-auto">
+      <% award.trophies.order_by_rank.each do |trophy| %>
+        <%= render(partial: "trophy", locals: { trophy: trophy }) %>
+      <% end %>
+      <% for report in award.reports.with_pictures.order(id: :desc) %>
+        <div class="inline-block text-center award">
+          <%= link_to image_tag(report.primary_picture_url(:small), class: 'image'), report_path(I18n.locale, report.id), target: '_blank' %>
+
+          <p class="line-breaks">
+            <strong>
+              <%= link_to report.title, report_path(I18n.locale, report), target: '_blank' %>
+            </strong>
+
+            <% if report.team %>
+              <br /><em><%= t('cg.copy.awards.by') %></em>
+              <br/><%= link_to report.team.name, team_path(I18n.locale, report.team), target: '_blank' %>
+            <% end %>
+          </p>
+
+          <% unless games_ended? %>
+            <p>
+              <%= link_to t('cg.awards.nominate'), report_report_award_path(report_id: report.id, id: award.id, locale: I18n.locale), class: 'btn btn-magenta nominate' %>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="diagonal-line-container clearfix">
+    <% odd_or_even = index % 2 == 0 ? 'even' : 'odd' %>
+    <div class="diagonal-line <%= odd_or_even %>"></div>
+  </div>
+<% end %>

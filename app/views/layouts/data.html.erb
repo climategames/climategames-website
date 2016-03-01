@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Climate Games Moderation</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="moderation-container" class="container-fluid">
+      <%= yield %>
+    </div>
+  </body>
+</html>

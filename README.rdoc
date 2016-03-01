@@ -1,0 +1,82 @@
+== README
+
+This is the portal app for the Climate Games.
+
+* Ruby version
+Written with current most recent ruby version: 2.2.1
+
+* About this project
+This is the code used to run the climategames.net website during the COP21 UN
+Climate Conference in Paris in December 2015. The code is released as open
+source to allow any groups to run their own project. For enquiries about the
+code please contact code@climategames.net
+
+* Configuration
+Configuration files you will have to create:
+- config/database.yml
+- config/initializers/localeapp.rb (run `localeapp install`)
+
+* Database loading from repository
+** It is possible to install a version of the database from the codebase, beware this may not always be the most up to date version
+** Ensure the database is created and migrated
+** Run: bundle exec rake db:data:load
+
+* Database copying from the live server
+** This is only intended to be done by users who also have deployment rights
+** Login to server from where to copy the database
+** Go into the current rails installation
+** Start a taps server: `RAILS_ENV=production bundle exec bin/start_taps_server`
+** Run this on your local app to DELETE current local database and replace with live one:
+   `bundle exec taps pull mysql2://root@localhost/penguin_games_development http://cgnr:chosenpassword@climategames.net:5080`
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* ENV settings
+** There are a few settings that make the site behave differently, namely:
+** - enable_cookies - allows cookies to be used if set to "1". Since we promise no-cookies to our users by default we disable them. They are needed for the cms though.
+** - disable_game_map - setting to "1" will grey out the game map, display a "the game map is disable" message and not allow any new reports to be posted
+** - enable_maintenance - setting to "1" will return a 503 (service_unavailable) HTTP error with a message for any user action that would modify the database (cms edits could still modify the db)
+** - enable_games_ended - setting to "1" will redirect to the /:locale/games_ended page (can be created from cms) for any user action that would modify the database
+** The value for each of these settings can be viewed on the /env url of the app
+
+* Deployment instructions
+
+** To deploy the foo branch to cloudstaging, run the following command: `BRANCH=foo bundle exec cap cloudstaging deploy`
+
+* There are some FAQs about Rails and this app here: https://we.riseup.net/climategamesnetwork+tech/rails-codebase-faq
+
+* Reset dev data
+rake db:drop && rake db:create && rake db:migrate && rake db:data:load
+
+* Clear report images for dev
+Report.all.each do |r|
+ r.image = nil
+ r.save
+end
+
+* Get user generated images from tools server
+rsync -rvz cgnr@tools.climategames.net:~/shared/public/system public/system
+
+* Migrate report images to pictures
+Report.all.each do |report|
+  if report.image
+    file_path = report.image.path(:original)
+
+    if file_path && File.exist?(file_path)
+      file = File.open file_path
+      report.pictures.create image: file
+      file.close
+    end
+  end
+end
+
+* Create Trophy information
+Code in lib/tasks/trophies.rake is intended to generate a trophy object for each winner/runner up. Some don't have teams yet so a team is created for them. To import this data:
+1) rake trophies:setup_teams_cop21
+2) rake trophies:create_cop21

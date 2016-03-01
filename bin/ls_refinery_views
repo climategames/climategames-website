@@ -1,0 +1,1 @@
+ls `bundle show refinerycms`/core/app/views/refinery/

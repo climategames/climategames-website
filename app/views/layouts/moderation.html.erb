@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Climate Games Moderation</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="moderation-container" class="container-fluid">
+      <div class="row site-head">
+        <div id="moderation-header" class="col-xs-12" style="">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: "flash-message #{name}" %>
+          <% end %>
+
+          <div id="moderator-section">
+            <ul class="language-switch">
+              <%= render 'layouts/language_switcher' %>
+            </ul>
+            <% if current_moderator %>
+
+              <span><%= t("moderation.logged_in_as") %> <%= current_moderator.username %>.</span>
+              <span><%= link_to t("moderation.session.log_out"), moderation_logout_path(locale: locale.to_s) %></span>
+              <% if current_moderator.super_cape %>
+                <%= image_tag("moderation/super-hero-red-cape-th.png") %>
+              <% end %>
+            <% else %>
+              <%= link_to t("moderation.session.log_in"), moderation_login_path(locale: locale.to_s) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-1">
+          <%= render(partial: '/moderation/shared/navbar') %>
+        </div>
+
+        <div class="col-xs-11 moderation-panel">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

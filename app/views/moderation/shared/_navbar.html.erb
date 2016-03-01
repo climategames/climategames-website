@@ -1,0 +1,6 @@
+<div class="moderation-nav">
+  <ul>
+    <%- @moderation_nav_items.each do |item| %>
+      <li class="nav-item<%= item[:active] ? ' active' : ''%>"><%= link_to(item[:name], item[:link]) %></li>
+    <%- end %>
+</div>

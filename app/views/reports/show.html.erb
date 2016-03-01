@@ -1,0 +1,135 @@
+<% content_for :title do %>
+  <%= @report.title %>
+<% end %>
+
+<% content_for :meta do %>
+
+  <%
+  if @report.description && @report.description.present?
+    meta_description = @report.description
+  elsif @report.team
+    meta_description = "#{t('cg.meta.description.a_report_from')} #{@report.team.name}"
+  else
+    meta_description = ""
+  end
+  %>
+
+  <meta name="description" content="<%= meta_description %>" />
+  <meta property="og:description" content="<%= meta_description %>" />
+
+  <% if @report.pictures.any? %>
+    <meta property="og:image" content="<%= "#{request.protocol}#{request.host_with_port}#{@report.primary_picture_url(:original)}" %>" />
+  <% elsif @report.team && @report.team.image_file_name %>
+    <meta property="og:image" content="<%= "#{request.protocol}#{request.host_with_port}#{@report.team.image.url(:original)}" %>" />
+  <% end %>
+
+<% end %>
+
+<div class="row content">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="row">
+      <div class="col-sm-4 no-side-padding" style="background: #f1f1f1;">
+        <%= link_to(image_tag(@report.primary_picture_url(:large), class: 'img-responsive avatar'), @report.primary_picture_url(:original)) %>
+
+        <% picture_count = @report.pictures.length %>
+        <% if picture_count > 1 %>
+          <% for picture in @report.pictures[1..picture_count] %>
+            <%= link_to(image_tag(picture.image.url(:large), class: 'img-responsive avatar'), picture.image.url(:original)) %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="col-sm-8">
+        <h1 class="margin-top-0"><%= @report.title %></h1>
+        <div>
+          <small><%= t("cg.reports.#{@report.category}") %> <%= t('cg.reports.at_time') %> <%= "#{l(@report.date_time, format: '%A %e %b %Y')} #{t('cg.reports.at_about')} #{l(@report.date_time, format:'%l%P')}" %></small>
+        </div>
+
+        <div class="social-media-sharing padding-top-bottom">
+          <a href="https://twitter.com/intent/tweet?text=<%= @report.tweet_text %>&url=<%= report_url(:locale => I18n.locale.to_s, :id => @report.id) %>&hashtags=ClimateGames&via=Climate_Games&related=Climate_Games,HackCOP21"
+            class="btn btn-large share-button twitter-share-button" target="_blank"><span class="fa fa-twitter"></span> Tweet</a>
+          <a href="http://www.facebook.com/sharer.php?u=<%= report_url(:locale => I18n.locale.to_s, :id => @report.id) %>"
+            class="btn btn-large share-button facebook-share-button" target="_blank"><span class="fa fa-facebook-official"></span> Share on Facebook</a>
+        </div>
+
+        <div class="row margin-top-5">
+          <div class="col-xs-12">
+            <%= simple_format @report.description %>
+
+            <% if @report && @report.links.any? %>
+              <h4><%= t('cg.reports.links') %></h4>
+              <ul class="margin-top-0">
+                <% for report_link in @report.links %>
+                  <li><%= link_to report_link.url, url_with_protocol(report_link.url), target: "_blank" %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+
+        <input id="report_latitude" value="<%= @report.latitude %>" disabled class="hidden" />
+        <input id="report_longitude" value="<%= @report.longitude %>" disabled class="hidden" />
+
+        <h4><%= t('cg.reports.map') %></h4>
+        <div id="map" class="show"></div>
+        <a target="_blank" href="<%= "https://www.openstreetmap.org/?mlat=#{@report.latitude}&mlon=#{@report.longitude}#map=16/#{@report.latitude}/#{@report.longitude}" %>"><%= t('cg.reports.view_larger_map') %></a>
+
+
+      </div>
+    </div>
+
+    <% if @report && @report.report_awards.any? %>
+      <div class="row margin-top-15">
+        <div class="col-sm-8 col-sm-offset-4">
+          <h4><%= t('cg.copy.teams.show.nominated_for') %></h4>
+        </div>
+      </div>
+
+      <% for report_award in @report.report_awards %>
+      <div class="row margin-top-5">
+        <div class="col-sm-8 col-sm-offset-4">
+          <div class="row padding-top-bottom" style="background: #f1f1f1;">
+            <div class="col-xs-8 padding-top-bottom-10">
+              <strong><%= report_award.award.name %> <abbr class='hidden-xs' rel='tooltip' title='<%= "#{report_award.award.name}: #{report_award.award.description} "%>'><i class='fa fa-question'></i></abbr></strong>
+              <span class="visible-xs-inline">
+                <br/><small><%= report_award.award.description %></small>
+              </span>
+            </div>
+            <% unless games_ended? %>
+              <div class="col-xs-4" style="text-align:right;">
+                <%= link_to t('cg.awards.nominate'), report_report_award_path(report_id: report_award.report.id, id: report_award.award.id, locale: I18n.locale), class: 'btn btn-magenta nominate' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+
+    <% if @report.team %>
+    <div class="row margin-top-15">
+        <% team_link = "/#{::I18n.locale}/teams/#{@report.team.id}" %>
+
+        <div class="col-xs-4" style="background: #f1f1f1;">
+          <%= link_to image_tag(@report.team.image.url(:small), class: 'img-responsive avatar'), team_link %>
+        </div>
+
+        <div class="col-xs-8">
+          <h4 class="margin-top-0">
+            <%= link_to("Team: #{@report.team.name}", team_link) %>
+          </h4>
+
+          <% if @report.team.nature %>
+            <p>
+              <%= truncate(@report.team.nature, length: 200) %>
+              <% if @report.team.approved_reports.count > 1 %>
+                <br/><%= link_to t('cg.reports.more_reports_from_this_team', count: @report.team.approved_reports.count-1), team_link %>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>

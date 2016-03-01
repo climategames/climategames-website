@@ -1,0 +1,14 @@
+<h1><%= t("moderation.reports_#{@outcome || "all"}") %> (<%= @reports.count %>)</h1>
+
+<table class="index-table reports">
+  <tr>
+    <th/>
+    <th><%= t('activerecord.attributes.report.title') %></th>
+    <th><%= t('activerecord.attributes.report.team') %></th>
+    <th><%= t('activerecord.attributes.report.date_time') %></th>
+    <th><%= t('activerecord.attributes.report.image') %></th>
+    <th><%= t('activerecord.attributes.report.moderation_outcome') %></th>
+    <th><%= t('moderation.report.current_moderator') %></th>
+  </tr>
+  <%= render partial: "report", collection: @reports %>
+</table>

@@ -1,0 +1,104 @@
+<div id="map" class="index" data-more-link-text="<%= t('cg.reports.more_info') %>"></div>
+<div class="relative">
+  <div class="row content side-padding">
+    <div class="col-xs-12">
+      <ul class="nav nav-tabs" role="tablist" id="tabs">
+        <li role="presentation"><a href="#" data-toggle="modal" data-target="#about" id="about_button"></a></li>
+        <li role="presentation" class="active"><a href="#map-tab" role="tab" data-toggle="tab"><%= t('cg.reports.map') %></a></li>
+        <li role="presentation"><a href="#list-tab" role="tab" data-toggle="tab"><%= t('cg.reports.list') %></a></li>
+        <li class="pull-right" role="presentation"><%= link_to t('cg.reports.add_report'), "/#{::I18n.locale}/reports/new", class: 'btn btn-magenta btn-add-report no-right-margin' %></li>
+      </ul>
+
+      <div class="filters row margin-top-15">
+        <div class="col-md-4">
+          <div class="form-group">
+            <select class="form-control" id="category_filter">
+              <option value=""><%= t('cg.reports.all_reports') %></option>
+              <% for category in Report::CATEGORIES %>
+                <option value="<%= category[1] %>">
+                  <%= category[0] %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <select class="form-control" id="team_filter">
+              <option value=""><%= t('cg.reports.all_teams') %></option>
+              <% if @teams && @teams.any? %>
+                <% for team in @teams %>
+                  <option value="<%= team.id %>">
+                    <%= team.name %>
+                  </option>
+                <% end %>
+              <% end %>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <select class="form-control" id="award_filter">
+              <option value=""><%= t('cg.reports.all_awards') %></option>
+              <% if @awards && @awards.any? %>
+                <% for award in @awards %>
+                  <option value="<%= award.id %>">
+                    <%= award.name %>
+                  </option>
+                <% end %>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="map-tab">
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="list-tab">
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-condensed table-striped">
+                <thead class="hidden-xs">
+                  <tr>
+                    <th class="hidden-xs">&nbsp;</th>
+                    <th><%= t('cg.reports.image') %></th>
+                    <th><%= t('cg.reports.title') %></th>
+                    <th class="hidden-xs"><%= t('cg.reports.team') %></th>
+                    <th><%= t('cg.reports.date_time') %></th>
+                    <th class="hidden-xs"><%= t('cg.reports.location') %></th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody id="reports-list">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="about">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title"><%= t('cg.reports.about') %></h4>
+      </div>
+
+      <div class="modal-body">
+        <%= t('cg.reports.map_intro').html_safe %>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('cg.reports.close') %></button>
+      </div>
+    </div>
+  </div>
+</div>
