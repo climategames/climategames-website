@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /en|fr/ do
     resources :awards
-    resources :teams
-    resources :reports do
+    resources :teams, only: [:index, :show]
+    resources :reports, only: [:index, :show] do
       resources :report_awards
     end
 

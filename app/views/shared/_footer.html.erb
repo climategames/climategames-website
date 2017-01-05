@@ -1,35 +1,7 @@
 <footer>
   <div class="container">
     <div class="row">
-      <!-- <div class="col-md-4">
-        <h1 class="first">Action Trainings &amp; Resources</h1>
-        <p>
-          <a href="#">Find a local training</a><br />
-          <a href="#">Post a training your're running</a><br />
-          <a href="#">Download our newsletter and agitprop</a>
-        </p>
-      </div> -->
-
-      <div class="col-md-4">
-        <h1><%= t "cg.footer.subscribe" %></h1>
-        <div class="form-group">
-          <form action="https://lists.riseup.net/www" method="post">
-            <input type="hidden" name="list" value="climategamescop21-newsletter">
-            <input type="hidden" name="action" value="subrequest">
-            <input type="hidden" name="via_subrequest" value="1">
-
-            <div class="input-group">
-              <input name="email" type="text" class="form-control" placeholder="<%= t "cg.footer.enter_your_email" %>" />
-              <span class="input-group-btn">
-                <input type="submit" class="btn btn-green" name="action_subrequest" value="<%= t "cg.footer.submit" %>" />
-              </span>
-            </div>
-          </form>
-        </div>
-        <p class="small"><%= t "cg.footer.we_wont_spam" %></p>
-      </div>
-
-      <div class="col-md-8" id="contact">
+      <div class="col-md-12" id="contact">
         <h1><%= t "cg.footer.follow_the_games" %></h1>
         <ul class='list-inline'>
           <li><%= link_to image_tag('shared/twitter.png', height: "24px"), 'https://twitter.com/climate_games', target: "_blank" %></li>
